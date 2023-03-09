@@ -22,9 +22,10 @@
         <section>
             <div> class="your-details"
                 <div>
-                    <input class="your-gross-wage">
+                    <label for="your-gross-wage">Your Gross Salary/Wage:</label><br>
+                    <input type="number" id="your-gross-wage" name="your-gross-wage">
                     <span>per</span>
-                    <label for="period-your">Select period</label>
+                    <label for="period-your">Select period:</label><br>
                     <select name="period" id="period">
                         <option value="annual">Annual</option>
                         <option value="annual">Month</option>
@@ -33,17 +34,29 @@
                         <option value="annual">Day</option>
                         <option value="annual">Hour</option>
                     </select>
-                    <input class="working-hours-per-week">               
+                    <label for="working-hs-weekly">Working Hours Per Week:</label><br>
+                    <input type="number" id="working-hs-weekly" name="working-hs-weekly">               
                 </div>
                 <div class="spouse-details">
-                    <input class="spouse-gross-wage">
+                    <label for="spouse-gross-wage">Your Gross Salary/Wage:</label><br>
+                    <input type="number" id="spouse-gross-wage" name="spouse-gross-wage">
                     <span>per</span>
-                    <input class="spouse-select-period">
-                    <input class="spouse-working-hours-per-week">
+                    <label for="period-your">Select period:</label><br>
+                    <select name="period" id="period">
+                    <option value="annual">Annual</option>
+                    <option value="annual">Month</option>
+                    <option value="annual">Fortnight</option>
+                    <option value="annual">Week</option>
+                    <option value="annual">Day</option>
+                    <option value="annual">Hour</option>
+                </select>
+                <label for="working-hs-weekly-spouse">Working Hours Per Week (Spouse):</label><br>
+                    <input type="number" id="working-hs-weekly" name="working-hs-weekly-spouse">
                 </div>
-                <input class="first-tax-band">
-                <input class="select-period">
-                <input class="tax-credits"> 
+                <label for="first-tax-band">Rate1 Tax Band:</label><br>
+                    <input type="number" id="first-tax-band" name="first-tax-band">
+                <label for="tax-credits">Tax Credits:</label><br>
+                    <input type="number" id="tax-credits" name="tax-credits"> 
                 <button>Calculate</button>
             </div>
             <div class="table">
