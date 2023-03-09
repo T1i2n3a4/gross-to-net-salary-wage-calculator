@@ -1,33 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Calculator for gross to net salary/wage, Ireland">
-    <meta name="keywords" content="salary, wage, gross salary, gross wage, net salary, net wage, gross to net, gross to net salary, gross to net wage, calculator, wage calculator, salary calculator, Ireland">
+    <meta name="keywords"
+        content="salary, wage, gross salary, gross wage, net salary, net wage, gross to net, gross to net salary, gross to net wage, calculator, wage calculator, salary calculator, Ireland">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Gross to Net Salary/Wage Calculator</title>
 </head>
+
 <body>
     <header>
         <div class="logo-heading">
             <img class="logo" src="assets/images/logo.png" alt="logo">
             <h1>Gross to Net Salary/Wage Calculator</h1>
         </div>
-        
+
     </header>
     <main>
-        <span>
-            <h2>Welcome to Gross to Net Salary/Wage Calculator website!</h2>
-            <button>Open welcome info</button>
-        </span>
-        <section>
-            <div> class="your-details"
+        <div class="welcome">
+            
+            <button><h2>Welcome <br>to Gross to Net Salary/Wage <br>Calculator website!</h2></button>
+        </div>
+
+        <section class="upper-area">
+            <div class="your-details">
                 <div>
+                    <h2>Your details</h2>
                     <label for="your-gross-wage">Your Gross Salary/Wage:</label><br>
-                    <input type="number" id="your-gross-wage" name="your-gross-wage">
-                    <span>per</span>
+                    <input type="number" id="your-gross-wage" name="your-gross-wage"><br>
+                    <!-- <span>per</span> -->
+                    <label for="period-your">Select period:</label><br>
+                    <select name="period" id="period">
+                        <option value="annual">Annual</option>
+                        <option value="annual">Month</option>
+                        <option value="annual">Fortnight</option>
+                        <option value="annual">Week</option>
+                        <option value="annual">Day</option>
+                        <option value="annual">Hour</option>
+                    </select><br>
+                    <label for="working-hs-weekly">Working Hours Per Week:</label><br>
+                    <input type="number" id="working-hs-weekly" name="working-hs-weekly">
+                </div>
+                <div class="spouse-details">
+                    <label for="spouse-gross-wage">Your Gross Salary/Wage:</label><br>
+                    <input type="number" id="spouse-gross-wage" name="spouse-gross-wage"><br>
+                    <!-- <span>per</span> -->
                     <label for="period-your">Select period:</label><br>
                     <select name="period" id="period">
                         <option value="annual">Annual</option>
@@ -37,45 +58,31 @@
                         <option value="annual">Day</option>
                         <option value="annual">Hour</option>
                     </select>
-                    <label for="working-hs-weekly">Working Hours Per Week:</label><br>
-                    <input type="number" id="working-hs-weekly" name="working-hs-weekly">               
-                </div>
-                <div class="spouse-details">
-                    <label for="spouse-gross-wage">Your Gross Salary/Wage:</label><br>
-                    <input type="number" id="spouse-gross-wage" name="spouse-gross-wage">
-                    <span>per</span>
-                    <label for="period-your">Select period:</label><br>
-                    <select name="period" id="period">
-                    <option value="annual">Annual</option>
-                    <option value="annual">Month</option>
-                    <option value="annual">Fortnight</option>
-                    <option value="annual">Week</option>
-                    <option value="annual">Day</option>
-                    <option value="annual">Hour</option>
-                </select>
-                <label for="working-hs-weekly-spouse">Working Hours Per Week (Spouse):</label><br>
+                    <label for="working-hs-weekly-spouse">Working Hours Per Week (Spouse):</label><br>
                     <input type="number" id="working-hs-weekly" name="working-hs-weekly-spouse">
                 </div>
                 <label for="first-tax-band">Rate1 Tax Band:</label><br>
-                    <input type="number" id="first-tax-band" name="first-tax-band">
+                <input type="number" id="first-tax-band" name="first-tax-band"><br>
                 <label for="tax-credits">Tax Credits:</label><br>
-                    <input type="number" id="tax-credits" name="tax-credits"> 
+                <input type="number" id="tax-credits" name="tax-credits">
                 <button>Calculate</button>
             </div>
+
             <div class="table">
+                <h2>Result</h2>
                 <table>
                     <tr>
                         <td></td>
                         <th>
-                            <label for="period-your">Select period</label>
-                    <select name="period" id="period">
-                        <option value="annual">Annual</option>
-                        <option value="annual">Month</option>
-                        <option value="annual">Fortnight</option>
-                        <option value="annual">Week</option>
-                        <option value="annual">Day</option>
-                        <option value="annual">Hour</option>
-                    </select>
+                            <label for="period-your">Select period</label><br>
+                            <select name="period" id="period">
+                                <option value="annual">Annual</option>
+                                <option value="annual">Month</option>
+                                <option value="annual">Fortnight</option>
+                                <option value="annual">Week</option>
+                                <option value="annual">Day</option>
+                                <option value="annual">Hour</option>
+                            </select>
                         </th>
                         <input class="result-period">
                     </tr>
@@ -115,4 +122,5 @@
 
     <script src="assets/js/script.js"></script>
 </body>
+
 </html>
