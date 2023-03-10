@@ -36,7 +36,7 @@
                 <input type="number" id="your-gross-wage" name="your-gross-wage" class="number-input"><br>
                 <!-- <span>per</span> -->
                 <label for="period-your">Select period:</label>
-                <select name="period-your" id="period-your">
+                <select name="period-your" id="period-your" class="period">
                     <option value="annual">Annual</option>
                     <option value="annual">Month</option>
                     <option value="annual">Fortnight</option>
@@ -52,7 +52,7 @@
                 <input type="number" id="spouse-gross-wage" name="spouse-gross-wage" class="number-input"><br>
                 <!-- <span>per</span> -->
                 <label for="period-spouse">Select period:</label>
-                <select name="period-spouse" id="period-spouse">
+                <select name="period-spouse" id="period-spouse" class="period">
                     <option value="annual">Annual</option>
                     <option value="annual">Month</option>
                     <option value="annual">Fortnight</option>
@@ -67,7 +67,9 @@
             <input type="number" id="first-tax-band" name="first-tax-band" class="number-input"><br>
             <label for="tax-credits">Tax Credits:</label><br>
             <input type="number" id="tax-credits" name="tax-credits" class="number-input">
-            <button>Calculate</button>
+            <div class="center-button">
+            <button type="button" id="calculate-button">Calculate</button>
+            </div>
             </form>
 
             <div class="result">
@@ -77,7 +79,7 @@
                         <td></td>
                         <th>
                             <label for="period-result">Select period</label>
-                            <select name="period-result" id="period-result">
+                            <select name="period-result" id="period-result" class="period">
                                 <option value="annual">Annual</option>
                                 <option value="annual">Month</option>
                                 <option value="annual">Fortnight</option>
