@@ -8,10 +8,13 @@ function handleSubmit(event) {
     console.log("Calculate Runs");
     event.preventDefault();
     const userAnnualGrossWage = calculateUserAnnualGrossWage();
-    console.log(userAnnualGrossWage)
+    console.log(`User's annual gross wage is ${userAnnualGrossWage}`);
+    const spouseAnnualGrossWage = calculateSpouseAnnualGrossWage();
+    console.log(`Spouse's annual gross wage is ${spouseAnnualGrossWage}`)
 
 }
 // document.getElementById("gross-wage-result").innerHTML = annualGrossWage;
+// document.getElementById("gross-wage-result").innerHTML = userWageInput * 12;
 
 /**
  * Calculates users's annual gross wage 
@@ -21,7 +24,7 @@ function calculateUserAnnualGrossWage() {
 
     let userWageInput = document.getElementById("user-wage-input").value;
     let userPeriodSelected = document.getElementById("user-selected-period").value;
-    document.getElementById("gross-wage-result").innerHTML = userWageInput * 12;
+    
     if (userPeriodSelected === "month") {
         document.getElementById("gross-wage-result").innerHTML = userWageInput * 12;
         return userWageInput * 12;
@@ -31,7 +34,10 @@ function calculateUserAnnualGrossWage() {
         return userWageInput * 52;
     } else if (userPeriodSelected === "day") {
         return userWageInput * 5 * 52;
-    } else {
+    } else if (userPeriodSelected === "hour") {
+        return userWageInput * document.getElementById("user-working-hs-weekly").value * 52;
+    }
+    else {
         return userWageInput;
     }
 }
@@ -43,8 +49,7 @@ function calculateUserAnnualGrossWage() {
 function calculateSpouseAnnualGrossWage() {
 
     let spouseWageInput = document.getElementById("spouse-wage-input").value;
-    let spousePeriodSelected = document.getElementById("spouse-selected-period").value;
-
+    let spousePeriodSelected = document.getElementById("spouse-period-selected").value;
     if (spousePeriodSelected === "month") {
         return spouseWageInput * 12;
     } else if (spousePeriodSelected === "fortnight") {
@@ -53,11 +58,13 @@ function calculateSpouseAnnualGrossWage() {
         return spouseWageInput * 52;
     } else if (spousePeriodSelected === "day") {
         return spouseWageInput * 5 * 52;
+    } else if (spousePeriodSelected === "hour") {
+        return spouseWageInput * document.getElementById("user-working-hs-weekly").value * 52;
     } else {
         return spouseWageInput;
     }
-
 }
+
 
 function calculateAnnualPaye() {
     let annualGrossWage = calculateAnnualGrossWage();
