@@ -21,48 +21,49 @@
 
     </header>
     <main>
-        
+
         <section class="upper-area">
-            <form  method="post" id="details-form" class="details">
-            <div class="user-details">
-                <h2>Your details</h2>
-                <label for="user-wage-input">Your Gross Salary/Wage:</label><br>
-                <input type="number" id="user-wage-input" name="user-wage-input" class="number-input" required><br>
-                <label for="user-selected-period">Select period:</label>
-                <select name="user-selected-period" id="user-selected-period" class="period">
-                    <option value="year">Year</option>
-                    <option value="month">Month</option>
-                    <option value="fortnight">Fortnight</option>
-                    <option value="week">Week</option>
-                    <option value="day">Day</option>
-                    <option value="hour">Hour</option>
-                </select><br><br>
-                <label for="user-working-hs-weekly">Working Hours Per Week:</label><br>
-                <input type="number" id="user-working-hs-weekly" name="user-working-hs-weekly" class="number-input">
-            </div>
-            <div class="spouse-details">
-                <label for="spouse-wage-input">Your Gross Salary/Wage:</label><br>
-                <input type="number" id="spouse-wage-input" name="spouse-wage-input" class="number-input"><br>
-                <!-- <span>per</span> -->
-                <label for="spouse-period-selected">Select period:</label>
-                <select name="spouse-period-selected" id="spouse-period-selected" class="period">
-                    <option value="year">Year</option>
-                    <option value="month">Month</option>
-                    <option value="fortnight">Fortnight</option>
-                    <option value="week">Week</option>
-                    <option value="day">Day</option>
-                    <option value="hour">Hour</option>
-                </select><br><br>
-                <label for="spouse-working-hs-weekly">Working Hours Per Week (Spouse):</label><br>
-                <input type="number" id="spouse-working-hs-weekly" name="spouse-working-hs-weekly" class="number-input">
-            </div>
-            <label for="first-tax-band">Rate1 Tax Band:</label><br>
-            <input type="number" id="first-tax-band" name="first-tax-band" class="number-input"><br>
-            <label for="tax-credits">Tax Credits:</label><br>
-            <input type="number" id="tax-credits" name="tax-credits" class="number-input">
-            <div class="center-button">
-            <button data-type="calculate" type="button" id="calculate-button" onclick="calculateAnnualGrossWage()">Calculate</button>
-            </div>
+            <form method="post" id="details-form" class="details">
+                <div class="user-details">
+                    <h2>Your details</h2>
+                    <label for="user-wage-input">Your Gross Salary/Wage:</label><br>
+                    <input type="number" id="user-wage-input" name="user-wage-input" class="number-input" required><br>
+                    <label for="user-selected-period">Select period:</label>
+                    <select name="user-selected-period" id="user-selected-period" class="period">
+                        <option value="year">Year</option>
+                        <option value="month">Month</option>
+                        <option value="fortnight">Fortnight</option>
+                        <option value="week">Week</option>
+                        <option value="day">Day</option>
+                        <option value="hour">Hour</option>
+                    </select><br><br>
+                    <label for="user-working-hs-weekly">Working Hours Per Week:</label><br>
+                    <input type="number" id="user-working-hs-weekly" name="user-working-hs-weekly" class="number-input">
+                </div>
+                <div class="spouse-details">
+                    <label for="spouse-wage-input">Your Gross Salary/Wage:</label><br>
+                    <input type="number" id="spouse-wage-input" name="spouse-wage-input" class="number-input"><br>
+                    <!-- <span>per</span> -->
+                    <label for="spouse-period-selected">Select period:</label>
+                    <select name="spouse-period-selected" id="spouse-period-selected" class="period">
+                        <option value="year">Year</option>
+                        <option value="month">Month</option>
+                        <option value="fortnight">Fortnight</option>
+                        <option value="week">Week</option>
+                        <option value="day">Day</option>
+                        <option value="hour">Hour</option>
+                    </select><br><br>
+                    <label for="spouse-working-hs-weekly">Working Hours Per Week (Spouse):</label><br>
+                    <input type="number" id="spouse-working-hs-weekly" name="spouse-working-hs-weekly"
+                        class="number-input">
+                </div>
+                <label for="first-tax-band">Rate1 Tax Band:</label><br>
+                <input type="number" id="first-tax-band" name="first-tax-band" class="number-input"><br>
+                <label for="tax-credits">Tax Credits:</label><br>
+                <input type="number" id="tax-credits" name="tax-credits" class="number-input">
+                <div class="center-button">
+                    <input type="submit" value="Calculate" data-type="calculate" id="calculate-button">
+                </div>
             </form>
 
             <div class="welcome-modal">
@@ -81,11 +82,11 @@
                             <label for="period-result">Select period</label>
                             <select name="period-result" id="period-result" class="period">
                                 <option value="year">Year</option>
-                    <option value="month">Month</option>
-                    <option value="fortnight">Fortnight</option>
-                    <option value="week">Week</option>
-                    <option value="day">Day</option>
-                    <option value="hour">Hour</option>
+                                <option value="month">Month</option>
+                                <option value="fortnight">Fortnight</option>
+                                <option value="week">Week</option>
+                                <option value="day">Day</option>
+                                <option value="hour">Hour</option>
                             </select>
                         </th>
                     </tr>
