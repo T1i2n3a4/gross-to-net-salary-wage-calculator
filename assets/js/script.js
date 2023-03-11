@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("user-wage-input").focus();
     let buttons = document.getElementsByTagName("button");
 
     for (let button of buttons) {
@@ -20,19 +21,23 @@ function handleSubmit(event) {
     
 }
 
-function calculateAnnualGrossWage() {
-    let annualGrossWage;
-    let yourWageInput = document.getElementById("your-wage-input").value;
-    let periodSelected = document.getElementById("period-your").value;
-        if (periodSelected === "year") {
-        let annualGrossWage = yourWageInput;
-        } else if (periodSelected === "month") {
-            let annualGrossWage = yourWageInput * 12;
-        } else if (periodSelected === "fortnight") {
+function calculateUserAnnualGrossWage() {
+    
+    let userWageInput = document.getElementById("user-wage-input").value;
+    let userPeriodSelected = document.getElementById("user-selected-period").value;
+    let monthToYear = userWageInput * 12;
+    let fortnightToYear = userWageInput / 2 * 52;
+    let 
+        if (userPeriodSelected === "month") {
+            monthToYear = userAnnualGrossWage;
+        
+    return userAnnualGrossWage;
+           
+        } else if (userPeriodSelected === "fortnight") {
             let annualGrossWage = yourWageInput / 2 * 52;
-        } else if (periodSelected === "week") {
+        } else if (userPeriodSelected === "week") {
             let annualGrossWage = yourWageInput * 52;
-        } else if (periodSelected === "day") {
+        } else if (userPeriodSelected === "day") {
             let annualGrossWage = yourWageInput * 5 * 52;
         }
         else {
