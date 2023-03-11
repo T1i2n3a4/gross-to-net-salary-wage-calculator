@@ -11,6 +11,8 @@ function handleSubmit(event) {
     console.log(`User's annual gross wage is ${userAnnualGrossWage}`);
     const spouseAnnualGrossWage = calculateSpouseAnnualGrossWage();
     console.log(`Spouse's annual gross wage is ${spouseAnnualGrossWage}`)
+    const prsi = calculateUserAnnualPrsi();
+    console.log(`User's annual annual PRSI is ${prsi}`);
 
 }
 // document.getElementById("gross-wage-result").innerHTML = annualGrossWage;
@@ -76,9 +78,11 @@ function calculateAnnualUsc() {
     let annualGrossWage = calculateAnnualGrossWage();
 }
 
-function calculateAnnualPrsi() {
-    let annualGrossWage = calculateAnnualGrossWage();
-    let annualPrsi = annualGrossWage * 4 / 100;
+function calculateUserAnnualPrsi() {
+ 
+    const prsiRate = 4;
+    return calculateUserAnnualGrossWage() * prsiRate / 100;
+
 }
 
 function calculateAnnualTotalTax() {
