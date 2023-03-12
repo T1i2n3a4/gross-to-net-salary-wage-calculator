@@ -78,6 +78,10 @@ function calculateAnnualUsc() {
     let annualGrossWage = calculateAnnualGrossWage();
 }
 
+/**
+ * Calculates user's annual PRSI
+ * by using the PRSI rate of 4%
+ */
 function calculateUserAnnualPrsi() {
  
     const prsiRate = 4;
