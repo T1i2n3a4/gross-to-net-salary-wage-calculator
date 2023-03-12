@@ -47,12 +47,13 @@ h1 {
 }
 
 main {
-    margin-top: 100px;
+    margin-top: 80px;
+    background: url(../images/euro-coins.jpg);
 }
 
-.welcome {
-    display: flex;
-    flex-direction: column;
+.welcome-modal {
+    /* display: flex;
+    flex-direction: column; */
     text-align: center;
 }
 
@@ -89,6 +90,7 @@ label {
 .form-box {
     width: 40%;
     background: gray;
+    opacity: 0.9;
     padding: 20px;
 }
 
@@ -143,10 +145,24 @@ label {
     color: green;
 }
 
+/* Result box */
 .result {
-    width: 30%;
-    background: green;
+    width: 40%;
+    background: gray;
     padding: 20px;
+}
+
+table {
+    width: auto;
+}
+
+td {
+    height: 50px;
+    width: 200px;
+}
+
+.net-wage {
+    background: green;
 }
 
 
