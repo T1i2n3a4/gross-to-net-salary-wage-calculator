@@ -13,6 +13,8 @@ function handleSubmit(event) {
     console.log(`Spouse's annual gross wage is ${spouseAnnualGrossWage}`)
     const prsi = calculateUserAnnualPrsi();
     console.log(`User's annual annual PRSI is ${prsi}`);
+    const userTaxAtRate1 = calcUserTaxAtRate1();
+    console.log(userTaxAtRate1);
 
 }
 // document.getElementById("gross-wage-result").innerHTML = annualGrossWage;
@@ -44,6 +46,7 @@ function calculateUserAnnualGrossWage() {
     }
 }
 
+const userAnnualGrossWage = calculateUserAnnualGrossWage();
 /**
  * Calculates spouse annual gross wage 
  * in dependence of which period was selected 
@@ -67,12 +70,24 @@ function calculateSpouseAnnualGrossWage() {
     }
 }
 
+function calcUserTaxAtRate1() {
+    const userAnnualGrossWage = calculateUserAnnualGrossWage();
+    const taxRate1 = 20 / 100;
+    let taxBand1 = document.getElementById("first-tax-band").value;
+    if (annualUserGrossWage <= taxBand1) {
+        return userAnnualGrossWage * taxRate1;
+    } else if (userAnnualGrossWage > taxBand1) {
+        return taxBand1 * taxRate1;
+    }
+}
+
 
 function calculateAnnualPaye() {
-    let annualGrossWage = calculateAnnualGrossWage();
+    
+    const taxRate2 = 40 / 100;
+    
+    }
 
-
-}
 
 function calculateAnnualUsc() {
     let annualGrossWage = calculateAnnualGrossWage();
