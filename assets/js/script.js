@@ -11,10 +11,12 @@ function handleSubmit(event) {
     console.log(`User's annual gross wage is ${userAnnualGrossWage}`);
     const spouseAnnualGrossWage = calculateSpouseAnnualGrossWage();
     console.log(`Spouse's annual gross wage is ${spouseAnnualGrossWage}`)
+    console.log(`Higher income tax at rate1 is ${calcHigherIncomeTaxAtRate1()}`);
+    console.log(`Higher income is ${getHigherIncome()}`);
     const prsi = calculateUserAnnualPrsi();
     console.log(`User's annual annual PRSI is ${prsi}`);
-    const userTaxAtRate1 = calcUserTaxAtRate1();
-    console.log(userTaxAtRate1);
+    
+    
 
 }
 // document.getElementById("gross-wage-result").innerHTML = annualGrossWage;
@@ -46,7 +48,6 @@ function calculateUserAnnualGrossWage() {
     }
 }
 
-const userAnnualGrossWage = calculateUserAnnualGrossWage();
 /**
  * Calculates spouse annual gross wage 
  * in dependence of which period was selected 
@@ -70,13 +71,34 @@ function calculateSpouseAnnualGrossWage() {
     }
 }
 
-function calcUserTaxAtRate1() {
-    const userAnnualGrossWage = calculateUserAnnualGrossWage();
+/**
+ * 
+ * Calculates what is the higher income between spouses
+ */
+function getHigherIncome() {
+    return calculateUserAnnualGrossWage() >= calculateSpouseAnnualGrossWage() ? calculateUserAnnualGrossWage() : calculateSpouseAnnualGrossWage();  
+}
+
+/**
+ * Calculates the tax at rate1 for the higher income 
+ */
+function calcHigherIncomeTaxAtRate1() {
+    // let userAnnualGrossWage = calculateUserAnnualGrossWage()
     const taxRate1 = 20 / 100;
+    let coupleBand1 = 49000;
+    let bandIncrease = 31000;
+    const coupleBand2 = coupleBand1 + bandIncrease;
     let taxBand1 = document.getElementById("first-tax-band").value;
-    if (annualUserGrossWage <= taxBand1) {
-        return userAnnualGrossWage * taxRate1;
-    } else if (userAnnualGrossWage > taxBand1) {
+    if (taxBand1 >= coupleBand2) {
+        if (getHigherIncome() <= coupleBand1){
+            return getHigherIncome() * taxRate1;
+        } else {
+            return coupleBand1 * taxRate1;
+        }
+    }
+    else if (getHigherIncome() <= taxBand1) {
+        return getHigherIncome() * taxRate1;
+    } else if (getHigherIncome() > taxBand1) {
         return taxBand1 * taxRate1;
     }
 }
