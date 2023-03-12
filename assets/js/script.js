@@ -14,6 +14,7 @@ function handleSubmit(event) {
     console.log(`Higher income is ${getHigherIncome()}`);
     console.log(`Higher income tax at rate1 is ${higherIncomeTaxRate1()}`);
     console.log(`Lower income tax at rate1 is ${lowerIncomeTaxRate1()}`);
+    console.log(`Higher income tax at rate2 is ${higherIncomeTaxRate2()}`)
     const prsi = calculateUserAnnualPrsi();
     console.log(`User's annual annual PRSI is ${prsi}`);
     console.log(`Lower income is ${lowerIncome()}`)
@@ -77,6 +78,7 @@ function getHigherIncome() {
 }
 
 const taxRate1 = 20 / 100;
+const taxRate2 = 40 / 100;
 let coupleBand1 = 49000;
 let bandIncrease = 31000;
 const coupleBand2 = 80000;
@@ -113,6 +115,23 @@ function lowerIncome() {
 
 function lowerIncomeTaxRate1() {
     return lowerIncome() <= bandIncrease ? lowerIncome() * taxRate1 : bandIncrease * taxRate1;
+}
+
+/**
+ * Calculates higher income tax at rate 2
+ * using tax band 1 input, tax bands for couples.
+ */
+function higherIncomeTaxRate2() {
+    const taxRate1 = 20 / 100;
+const taxRate2 = 40 / 100;
+let coupleBand1 = 49000;
+const coupleBand2 = 80000;
+let taxBand1 = document.getElementById("first-tax-band").value;
+    if (taxBand1 >= coupleBand2 && getHigherIncome() > coupleBand1) {
+            return (getHigherIncome() - coupleBand1) * taxRate2;
+    } else if (taxBand1 < getHigherIncome()) {
+        return (getHigherIncome() - taxBand1) * taxRate2;
+    } 
 }
 
 function calculateAnnualPaye() {
