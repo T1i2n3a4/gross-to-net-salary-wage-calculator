@@ -19,6 +19,7 @@ function handleSubmit(event) {
     console.log(`Lower income tax at rate2 is ${lowerIncomeTaxRate2()}`);
     console.log(`Annual gross tax is ${grossTax()}`);
     console.log(`Annual PAYE is ${annualPaye()}`);
+    console.log(`Annual USC is ${annualUsc()}`);
     const prsi = calculateUserAnnualPrsi();
     console.log(`User's annual annual PRSI is ${prsi}`);
 
@@ -170,8 +171,30 @@ function annualPaye() {
 }
 
 
-function calculateAnnualUsc() {
-    let annualGrossWage = calculateAnnualGrossWage();
+function annualUsc() {
+    let uscRates = {
+        rate1 : 0.5 / 100,
+        rate2 : 2 / 100,
+        rate3 : 4.5 / 100,
+        rate4 : 8 / 100
+    }
+    let uscBands = {
+        band0 : 13000,
+        band1 : 12012,
+        band2 : 10908,
+        band3 : 47124,
+    };
+
+    let band4 = calculateUserAnnualGrossWage() - (uscBands.band1 + uscBands.band2 + uscBands.band3)
+
+    if (calculateUserAnnualGrossWage() <= uscBands.band0) {
+        return 0;
+    } else if (calculateUserAnnualGrossWage() <= uscBands.band1 + uscBands.band2) {
+        return uscBands.band1 * uscRates.rate1 + (calculateUserAnnualGrossWage() - uscBands.band1) * uscRates.rate2;
+    } else if (calculateUserAnnualGrossWage() <= uscBands.band1 + uscBands.band2 + uscBands.band3) {
+        return uscBands.band1 * uscRates.rate1 + uscBands.band2 * uscRates.rate2 + (calculateUserAnnualGrossWage() - (uscBands.band1 + uscBands.band2)) * uscRates.rate3;
+    } else
+        return uscBands.band1 * uscRates.rate1 + uscBands.band2 * uscRates.rate2 + uscBands.band3 * uscRates.rate3 + uscBands.band4 * uscRates.rate4;
 }
 
 /**
