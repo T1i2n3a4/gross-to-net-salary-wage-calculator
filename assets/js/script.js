@@ -248,15 +248,17 @@ function monthlyWage() {
     
 }
 
-// function display() {
+function display() {
 
-//     let annualWageComponents = [annualNetWage(), calculateUserAnnualGrossWage(), annualPaye(), annualUsc(), annualPrsi(), annualTotalTax()];
-//     let resultColumn = document.getElementsByTagName('td');
-//     for (i = 0; i < annualWageComponents.length; i++) {
-//         document.getElementsByTagName('td').innerHTML = resultColumn[i];
-//     };
+    let annualWageComponents = [annualNetWage(), calculateUserAnnualGrossWage(), annualPaye(), annualUsc(), annualPrsi(), annualTotalTax()];
+    let resultColumn = document.getElementsByTagName('td');
+    console.log(annualWageComponents);
+    console.log(resultColumn);
+    for (i = 0; i < annualWageComponents.length; i++) {
+        document.getElementsByTagName('td').innerHTML = resultColumn[i];
+    };
     
-//      }
+     }
 
      document.getElementById("mouse-over").addEventListener("mouseover", mouseOver);
      document.getElementById("mouse-over").addEventListener("mouseout", mouseOut);
