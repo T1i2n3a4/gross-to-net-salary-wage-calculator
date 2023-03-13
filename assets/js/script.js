@@ -12,12 +12,15 @@ function handleSubmit(event) {
     const spouseAnnualGrossWage = calculateSpouseAnnualGrossWage();
     console.log(`Spouse's annual gross wage is ${spouseAnnualGrossWage}`);
     console.log(`Higher income is ${getHigherIncome()}`);
+    console.log(`Lower income is ${lowerIncome()}`)
     console.log(`Higher income tax at rate1 is ${higherIncomeTaxRate1()}`);
     console.log(`Lower income tax at rate1 is ${lowerIncomeTaxRate1()}`);
     console.log(`Higher income tax at rate2 is ${higherIncomeTaxRate2()}`)
+    console.log(`Lower income tax at rate2 is ${lowerIncomeTaxRate2()}`)
+    console.log(`Annual gross tax is ${grossTax()}`)
     const prsi = calculateUserAnnualPrsi();
     console.log(`User's annual annual PRSI is ${prsi}`);
-    console.log(`Lower income is ${lowerIncome()}`)
+    
 }
 // document.getElementById("gross-wage-result").innerHTML = annualGrossWage;
 // document.getElementById("gross-wage-result").innerHTML = userWageInput * 12;
@@ -122,7 +125,7 @@ function lowerIncomeTaxRate1() {
  * using tax band 1 input, tax bands for couples.
  */
 function higherIncomeTaxRate2() {
-    const taxRate1 = 20 / 100;
+const taxRate1 = 20 / 100;
 const taxRate2 = 40 / 100;
 let coupleBand1 = 49000;
 const coupleBand2 = 80000;
@@ -131,12 +134,40 @@ let taxBand1 = document.getElementById("first-tax-band").value;
             return (getHigherIncome() - coupleBand1) * taxRate2;
     } else if (taxBand1 < getHigherIncome()) {
         return (getHigherIncome() - taxBand1) * taxRate2;
-    } 
+    } else {
+        return 0;
+    }
+}
+
+function lowerIncomeTaxRate2() {
+    return lowerIncome() > bandIncrease ? (lowerIncome - bandIncrease) * taxRate2 : 0;
+}
+
+/**
+ * Calculates gross tax
+ * using previously calculated taxes 
+ * for higher and lower incomes 
+ * at 2 rates
+ */
+function grossTax() {
+grossTax = [
+    higherIncomeTaxRate1(),
+    higherIncomeTaxRate2(),
+    lowerIncomeTaxRate1(),
+    lowerIncomeTaxRate2(),
+]
+let sum = 0;
+for (i = 0; i < grossTax.length; i += 1) {
+    sum += grossTax[i];
+}
+return sum;
 }
 
 function calculateAnnualPaye() {
 
-    const taxRate2 = 40 / 100;
+    let grossTax = higherIncomeTaxRate1() + higherIncomeTaxRate2() + lowerIncomeTaxRate1() + lowerIncomeTaxRate2;
+    let taxCredits = document.getElementById("tax-credits");
+    return grossTax - taxCredits;
 }
 
 
