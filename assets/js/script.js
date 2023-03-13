@@ -20,8 +20,9 @@ function handleSubmit(event) {
     console.log(`Annual gross tax is ${grossTax()}`);
     console.log(`Annual PAYE is ${annualPaye()}`);
     console.log(`Annual USC is ${annualUsc()}`);
-    const prsi = calculateUserAnnualPrsi();
-    console.log(`User's annual annual PRSI is ${prsi}`);
+    console.log(`User's annual annual PRSI is ${annualPrsi()}`);
+    console.log(`Annual total tax is ${annualTotalTax()}`);
+    console.log(`User's annual NET WAGE/SALARY is ${annualNetWage()}`)
 
 }
 // document.getElementById("gross-wage-result").innerHTML = annualGrossWage;
@@ -90,7 +91,8 @@ const coupleBand2 = 80000;
 let taxBand1 = document.getElementById("first-tax-band").value;
 
 /**
- * Calculates the tax at rate1 for the higher income 
+ * Calculates the tax at rate1 
+ * for the higher income 
  */
 function higherIncomeTaxRate1() {
     const taxRate1 = 20 / 100;
@@ -127,7 +129,7 @@ function lowerIncomeTaxRate1() {
  * using tax band 1 input, tax bands for couples.
  */
 function higherIncomeTaxRate2() {
-    const taxRate1 = 20 / 100;
+    // const taxRate1 = 20 / 100;
     const taxRate2 = 40 / 100;
     let coupleBand1 = 49000;
     const coupleBand2 = 80000;
@@ -164,7 +166,9 @@ function grossTax() {
     }
     return sum;
 }
-
+/**Calculates the annual income tax 
+ * reduced by tax credits
+ */
 function annualPaye() {
     let taxCredits = document.getElementById("tax-credits").value;
     return grossTax() - taxCredits;
@@ -201,19 +205,31 @@ function annualUsc() {
  * Calculates user's annual PRSI
  * by using the PRSI rate of 4%
  */
-function calculateUserAnnualPrsi() {
+function annualPrsi() {
 
     const prsiRate = 4;
     return calculateUserAnnualGrossWage() * prsiRate / 100;
-
 }
 
-function calculateAnnualTotalTax() {
-
+/**Calculates total annual tax
+ * by adding paye, usc and prsi taxes
+ */
+function annualTotalTax() {
+    let totalTax = [
+        annualPaye(),
+        annualUsc(),
+        annualPrsi(),
+        ];
+    let sum = 0;
+    for (i = 0; i < totalTax.length; i += 1) {
+        sum += totalTax[i];
+    }
+    return sum;
 }
 
-function calculateAnnualNetWage() {
 
+function annualNetWage() {
+return calculateUserAnnualGrossWage() - annualTotalTax();
 }
 
 function display() {
