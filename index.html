@@ -23,10 +23,29 @@
     <main>
         <div class="welcome-modal">
 
-            <button data-type="modal" type="button" id="modal-button">
+            <button data-type="modal" type="button" id="myBtn">
                 <h2>Welcome to Gross to Net Salary/Wage Calculator website!</h2>
             </button>
-        </div>
+
+            <!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2>Welcome to Gross to Net Salary/Wage Calculator website!</h2>
+      </div>
+      <div class="modal-body">
+        <p>Use this website's salary/wage calculator to estimate your net employment income based on the provisions announced in the latest budget.</p>
+        <p>Some other text...</p>
+      </div>
+      
+    </div>
+  
+  </div>
+           </div>
+            
 
         <section class="input-result">
             <div class="form-box">
@@ -57,7 +76,8 @@
                         </div>
 
                         <!-- spouse wage input -->
-                        <div class="column">
+                        <div id="mouse-over" title="Ignore this section if single assessed for income tax."
+                            class="column">
                             <div class="wage">
                                 <label for="spouse-wage-input">Spouse Gross Salary/Wage:</label><br>
                                 <input type="number" id="spouse-wage-input" name="spouse-wage-input"
@@ -116,13 +136,11 @@
                     </tr>
                     <tr>
                         <th class="net-wage">NET SALARY/WAGE</th>
-                        <td class="net-wage"></td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>Gross Salary/Wage</th>
-                        <td>
-                            <p id="gross-wage-result"></p>
-                        </td>
+                        <td></td>
                     </tr>
                     <tr>
                         <th>PAYE</th>
@@ -146,7 +164,13 @@
         <section></section>
     </main>
     <footer>
-
+        <div class="footer-box">
+            <span>More info about Employment Pay on:</span>
+            <span><a href="https://www.revenue.ie/en/jobs-and-pensions/index.aspx" target="_blank" rel="noopener"
+                aria-label="Salary/wage info on Revenue.ie"></a></span>
+            <span><a href="https://www.citizensinformation.ie/en/employment/employment_rights_and_conditions/pay_and_employment/"
+                target="_blank" rel="noopener" aria-label="Salary/wage info on Citizensinformation.ie"></a></span>
+        </div>
     </footer>
 
 

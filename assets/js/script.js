@@ -23,6 +23,7 @@ function handleSubmit(event) {
     console.log(`User's annual annual PRSI is ${annualPrsi()}`);
     console.log(`Annual total tax is ${annualTotalTax()}`);
     console.log(`User's annual NET WAGE/SALARY is ${annualNetWage()}`)
+    console.log(monthlyWage());
 
 }
 // document.getElementById("gross-wage-result").innerHTML = annualGrossWage;
@@ -174,7 +175,9 @@ function annualPaye() {
     return grossTax() - taxCredits;
 }
 
-
+/**Calculates user's annual USC 
+ * using different rates for different thresholds 
+ */
 function annualUsc() {
     let uscRates = {
         rate1 : 0.5 / 100,
@@ -227,11 +230,68 @@ function annualTotalTax() {
     return sum;
 }
 
-
+/**Claculates user's annual net wage 
+ * reducing annual gross wage by annual total tax
+*/
 function annualNetWage() {
 return calculateUserAnnualGrossWage() - annualTotalTax();
 }
 
-function display() {
 
+let wageResults = [annualNetWage(), calculateUserAnnualGrossWage(), annualPaye(), annualUsc(), annualPrsi(), annualTotalTax()];
+
+function monthlyWage() {
+
+    for (i = 0; i < wageResults.length; i++) {
+    wageResults[i] / 12;
+    }
+    
+}
+
+// function display() {
+
+//     let annualWageComponents = [annualNetWage(), calculateUserAnnualGrossWage(), annualPaye(), annualUsc(), annualPrsi(), annualTotalTax()];
+//     let resultColumn = document.getElementsByTagName('td');
+//     for (i = 0; i < annualWageComponents.length; i++) {
+//         document.getElementsByTagName('td').innerHTML = resultColumn[i];
+//     };
+    
+//      }
+
+     document.getElementById("mouse-over").addEventListener("mouseover", mouseOver);
+     document.getElementById("mouse-over").addEventListener("mouseout", mouseOut);
+     
+     function mouseOver() {
+       document.getElementById("mouse-over").style.backgroundColor = "lightgray";
+     }
+     
+     function mouseOut() {
+       document.getElementById("mouse-over").style.backgroundColor= "gray";
+     }
+
+
+     // Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }
