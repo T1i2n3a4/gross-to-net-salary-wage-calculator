@@ -265,6 +265,7 @@ table {
 td {
     height: 50px;
     width: 200px;
+    text-align: center;
 }
 
 .net-wage {

@@ -4,19 +4,13 @@
 let detailsForm = document.getElementById('details-form');
 detailsForm.addEventListener('submit', handleSubmit);
 
-const taxRate1 = 20 / 100;
-const taxRate2 = 40 / 100;
-let coupleBand1 = 49000;
-let bandIncrease = 31000;
-const coupleBand2 = 80000;
-let taxBand1 = document.getElementById("first-tax-band").value;
-let wageResults = [annualNetWage(), userAnnualGrossWage(), annualPaye(), annualUsc(), annualPrsi(), annualTotalTax()];
+let annualResults = [];
 
 function handleSubmit(event) {
     console.log("Calculate Runs");
     event.preventDefault();
 
-    console.log(`User's annual gross wage is ${userAnnualGrossWage()}`);
+    console.log(`User's annual gross wage is ${annualGrossWage()}`);
     console.log(`Spouse's annual gross wage is ${spouseAnnualGrossWage()}`);
     console.log(`Higher income is ${getHigherIncome()}`);
     console.log(`Lower income is ${lowerIncome()}`);
@@ -29,20 +23,41 @@ function handleSubmit(event) {
     console.log(`Annual USC is ${annualUsc()}`);
     console.log(`User's annual annual PRSI is ${annualPrsi()}`);
     console.log(`Annual total tax is ${annualTotalTax()}`);
-    console.log(`User's annual NET WAGE/SALARY is ${annualNetWage()}`)
-    console.log(monthlyWage());
-
-
+    console.log(`User's annual NET WAGE/SALARY is ${annualNetWage()}`);
+    console.log(annualResults);
+    
+      
+    
+    
+    let userAnnualNetWage = annualNetWage();
+    let userAnnualGrossWage = annualGrossWage();
+    let userAnnualPaye = annualPaye();
+    let userAnnualUsc = annualUsc();
+    let userAnnualPrsi = annualPrsi();
+    let userAnnualTotalTax = annualTotalTax();
+    annualResults.push(userAnnualNetWage, userAnnualGrossWage, userAnnualPaye, userAnnualUsc, userAnnualPrsi, userAnnualTotalTax);
+    let monthlyResults = getMonthlyResults(annualResults);
+    let fortnightlyResults = getFortnightlyResults(annualResults);
+    let weeklyResults = getWeeklyResults(annualResults);
+    let dailyResults = getDailyResults(annualResults);
+    let hourlyResults = getHourlyResults(annualResults);
+    
+    console.log(monthlyResults);
+    console.log(fortnightlyResults);
+    console.log(weeklyResults);
+    console.log(dailyResults);
+    console.log(hourlyResults);
+    
     display();
 }
 // document.getElementById("gross-wage-result").innerHTML = annualGrossWage;
-// document.getElementById("gross-wage-result").innerHTML = userWageInput * 12;
+
 
 /**
  * Calculates users's annual gross wage 
  * in dependence of which period was selected 
  */
-function userAnnualGrossWage() {
+function annualGrossWage() {
 
     let userWageInput = document.getElementById("user-wage-input").value;
     let userPeriodSelected = document.getElementById("user-selected-period").value;
@@ -90,19 +105,16 @@ function spouseAnnualGrossWage() {
  * Gets the higher income between spouses
  */
 function getHigherIncome() {
-    return userAnnualGrossWage() >= spouseAnnualGrossWage() ? userAnnualGrossWage() : spouseAnnualGrossWage();
+    return annualGrossWage() >= spouseAnnualGrossWage() ? annualGrossWage() : spouseAnnualGrossWage();
 }
 
-
-
 /**
- * Calculates the tax at rate1 
+ * Calculates the income tax at 20% rate
  * for the higher income 
  */
 function higherIncomeTaxRate1() {
     const taxRate1 = 20 / 100;
-    let coupleBand1 = 49000;
-    let bandIncrease = 31000;
+    const coupleBand1 = 49000;
     const coupleBand2 = 80000;
     let taxBand1 = document.getElementById("first-tax-band").value;
     if (taxBand1 >= coupleBand2) {
@@ -119,24 +131,27 @@ function higherIncomeTaxRate1() {
 }
 
 /**
- * Gets the lower income 
+ * Gets the lower income
+ * of user's and spuse's income 
  */
 function lowerIncome() {
-    return userAnnualGrossWage() >= spouseAnnualGrossWage() ? spouseAnnualGrossWage() : userAnnualGrossWage();
+    return spouseAnnualGrossWage() <= annualGrossWage() ? spouseAnnualGrossWage() : annualGrossWage();
 }
 
 function lowerIncomeTaxRate1() {
+    const taxRate1 = 20 / 100;
+    const bandIncrease = 31000;
     return lowerIncome() <= bandIncrease ? lowerIncome() * taxRate1 : bandIncrease * taxRate1;
 }
 
 /**
- * Calculates higher income tax at rate 2
- * using tax band 1 input, tax bands for couples.
+ * Calculates higher income tax at rate 2 of 40%
+ * using tax band 1 input and tax bands for couples.
  */
 function higherIncomeTaxRate2() {
-    // const taxRate1 = 20 / 100;
+    
     const taxRate2 = 40 / 100;
-    let coupleBand1 = 49000;
+    const coupleBand1 = 49000;
     const coupleBand2 = 80000;
     let taxBand1 = document.getElementById("first-tax-band").value;
     if (taxBand1 >= coupleBand2 && getHigherIncome() > coupleBand1) {
@@ -149,7 +164,9 @@ function higherIncomeTaxRate2() {
 }
 
 function lowerIncomeTaxRate2() {
-    return lowerIncome() > bandIncrease ? (lowerIncome - bandIncrease) * taxRate2 : 0;
+    const bandIncrease = 31000;
+    const taxRate2 = 40 / 100;
+    return lowerIncome() > bandIncrease ? (lowerIncome() - bandIncrease) * taxRate2 : 0;
 }
 
 /**
@@ -171,6 +188,8 @@ function grossTax() {
     }
     return sum;
 }
+
+
 /**Calculates the annual income tax 
  * reduced by tax credits
  */
@@ -188,7 +207,7 @@ function annualUsc() {
         rate2: 2 / 100,
         rate3: 4.5 / 100,
         rate4: 8 / 100
-    }
+    };
     let uscBands = {
         band0: 13000,
         band1: 12012,
@@ -196,16 +215,16 @@ function annualUsc() {
         band3: 47124,
     };
 
-    let band4 = userAnnualGrossWage() - (uscBands.band1 + uscBands.band2 + uscBands.band3)
+    let band4 = annualGrossWage() - (uscBands.band1 + uscBands.band2 + uscBands.band3);
 
-    if (userAnnualGrossWage() <= uscBands.band0) {
+    if (annualGrossWage() <= uscBands.band0) {
         return 0;
-    } else if (userAnnualGrossWage() <= uscBands.band1 + uscBands.band2) {
-        return uscBands.band1 * uscRates.rate1 + (userAnnualGrossWage() - uscBands.band1) * uscRates.rate2;
-    } else if (userAnnualGrossWage() <= uscBands.band1 + uscBands.band2 + uscBands.band3) {
-        return uscBands.band1 * uscRates.rate1 + uscBands.band2 * uscRates.rate2 + (userAnnualGrossWage() - (uscBands.band1 + uscBands.band2)) * uscRates.rate3;
+    } else if (annualGrossWage() <= uscBands.band1 + uscBands.band2) {
+        return uscBands.band1 * uscRates.rate1 + (annualGrossWage() - uscBands.band1) * uscRates.rate2;
+    } else if (annualGrossWage() <= uscBands.band1 + uscBands.band2 + uscBands.band3) {
+        return uscBands.band1 * uscRates.rate1 + uscBands.band2 * uscRates.rate2 + (annualGrossWage() - (uscBands.band1 + uscBands.band2)) * uscRates.rate3;
     } else
-        return uscBands.band1 * uscRates.rate1 + uscBands.band2 * uscRates.rate2 + uscBands.band3 * uscRates.rate3 + uscBands.band4 * uscRates.rate4;
+        return uscBands.band1 * uscRates.rate1 + uscBands.band2 * uscRates.rate2 + uscBands.band3 * uscRates.rate3 + band4 * uscRates.rate4;
 }
 
 /**
@@ -215,7 +234,7 @@ function annualUsc() {
 function annualPrsi() {
 
     const prsiRate = 4;
-    return userAnnualGrossWage() * prsiRate / 100;
+    return annualGrossWage() * prsiRate / 100;
 }
 
 /**Calculates total annual tax
@@ -234,37 +253,71 @@ function annualTotalTax() {
     return sum;
 }
 
-/**Claculates user's annual net wage 
+/**Calculates user's annual net wage 
  * reducing annual gross wage by annual total tax
  */
 function annualNetWage() {
-    return userAnnualGrossWage() - annualTotalTax();
+    return annualGrossWage() - annualTotalTax();
 }
 
-
-// let wageResults = [annualNetWage(), userAnnualGrossWage(), annualPaye(), annualUsc(), annualPrsi(), annualTotalTax()];
-
-function monthlyWage() {
-    monthlyWageResults = [];
-
-    for (i = 0; i < wageResults.length; i++) {
-
-        monthlyWageResults[i] = wageResults[i] / 12;
+function getMonthlyResults(array) {
+    const newArray = [];
+    for (let i = 0; i < array.length; i++) {
+        newArray[i] = array[i] / 12;
     }
-    console.log(wageResults);
+    return newArray;
 }
 
+function getFortnightlyResults(array) {
+    const newArray = [];
+    for (let i = 0; i < array.length; i++) {
+        newArray[i] = array[i] / 52 * 2;
+    }
+    return newArray;
+}
+
+function getWeeklyResults(array) {
+    const newArray = [];
+    for (let i = 0; i < array.length; i++) {
+        newArray[i] = array[i] / 52;
+    }
+    return newArray;
+}
+
+function getDailyResults(array) {
+    let workingDaysPerWeek = document.getElementById('user-working-ds-weekly').value;
+    const newArray = [];
+    for (let i = 0; i < array.length; i++) {
+        newArray[i] = array[i] / 52 /workingDaysPerWeek;
+    }
+    return newArray;
+}
+
+function getHourlyResults(array) {
+    let workingHsPerWeek = document.getElementById('user-working-hs-weekly').value;
+    const newArray = [];
+    for (let i = 0; i < array.length; i++) {
+        newArray[i] = array[i] / 52 / workingHsPerWeek;
+    }
+    return newArray;
+}
+
+/**Displays calculator results
+ * in the table 2nd column
+ */
 function display() {
-
-
+    
     let resultColumn = document.getElementsByTagName('td');
-    // console.log(annualWageComponents);
-    // console.log(resultColumn);
-    for (i = 0; i < wageResults.length; i++) {
-        resultColumn[i + 1].innerHTML = wageResults[i];
-    };
+    for (i = 0; i < annualResults.length; i++) {
+        resultColumn[i + 1].innerHTML = annualResults[i];
+    }
 
 }
+
+
+
+
+
 
 document.getElementById("mouse-over").addEventListener("mouseover", mouseOver);
 document.getElementById("mouse-over").addEventListener("mouseout", mouseOut);
@@ -290,16 +343,16 @@ var span = document.getElementsByClassName("close")[0];
 // When the user clicks the button, open the modal 
 btn.onclick = function () {
     modal.style.display = "block";
-}
+};
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function () {
     modal.style.display = "none";
-}
+};
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
-}
+};
