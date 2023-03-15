@@ -1,5 +1,5 @@
 // document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("user-wage-input").focus();
+document.getElementById("user-wage-input").focus();
 
 let detailsForm = document.getElementById('details-form');
 detailsForm.addEventListener('submit', handleSubmit);
@@ -9,7 +9,7 @@ let annualResults = [];
 function handleSubmit(event) {
     console.log("Calculate Runs");
     event.preventDefault();
-    
+
     console.log(`User's annual gross wage is ${annualGrossWage()}`);
     console.log(`Spouse's annual gross wage is ${spouseAnnualGrossWage()}`);
     console.log(`Higher income is ${getHigherIncome()}`);
@@ -25,7 +25,7 @@ function handleSubmit(event) {
     console.log(`Annual total tax is ${annualTotalTax()}`);
     console.log(`User's annual NET WAGE/SALARY is ${annualNetWage()}`);
     console.log(annualResults);
-    
+
     let userAnnualNetWage = annualNetWage();
     let userAnnualGrossWage = annualGrossWage();
     let userAnnualPaye = annualPaye();
@@ -38,14 +38,14 @@ function handleSubmit(event) {
     let weeklyResults = getWeeklyResults(annualResults);
     let dailyResults = getDailyResults(annualResults);
     let hourlyResults = getHourlyResults(annualResults);
-    
+
     console.log(monthlyResults);
     console.log(fortnightlyResults);
     console.log(weeklyResults);
     console.log(dailyResults);
     console.log(hourlyResults);
-    
-    
+
+
 
     let yearSelected = displayAnnualResult();
     let monthSelected = displayMonthlyResult();
@@ -54,11 +54,19 @@ function handleSubmit(event) {
     let daySelected = displayDailyResult();
     let hourSelected = displayHourlyResult();
 
-    
+
 
     display();
-    
+
 }
+
+let periodResult = document.getElementById("period-result");
+periodResult.addEventListener("change", display());
+ 
+
+const input = document.querySelector("input");
+input.addEventListener("change", display());
+
 
 // document.getElementById("gross-wage-result").innerHTML = annualGrossWage;
 
@@ -159,7 +167,7 @@ function lowerIncomeTaxRate1() {
  * using tax band 1 input and tax bands for couples.
  */
 function higherIncomeTaxRate2() {
-    
+
     const taxRate2 = 40 / 100;
     const coupleBand1 = 49000;
     const coupleBand2 = 80000;
@@ -209,7 +217,7 @@ function totalAnnualPaye() {
 }
 
 function annualPaye() {
-    
+
     let jointWage = annualGrossWage() + spouseAnnualGrossWage();
     return totalAnnualPaye() * (annualGrossWage() / jointWage);
 
@@ -305,7 +313,7 @@ function getDailyResults(array) {
     let workingDaysPerWeek = document.getElementById('user-working-ds-weekly').value;
     const newArray = [];
     for (let i = 0; i < array.length; i++) {
-        newArray[i] = array[i] / 52 /workingDaysPerWeek;
+        newArray[i] = array[i] / 52 / workingDaysPerWeek;
     }
     return newArray;
 }
@@ -323,7 +331,7 @@ function getHourlyResults(array) {
  * in the table 2nd column
  */
 function displayAnnualResult() {
-    
+
     let resultColumn = document.getElementsByTagName('td');
     for (i = 0; i < annualResults.length; i++) {
         resultColumn[i + 1].innerHTML = annualResults[i];
@@ -336,7 +344,7 @@ function displayAnnualResult() {
 
 
 function displayFortnightlyResult() {
-    
+
     let resultColumn = document.getElementsByTagName('td');
     for (i = 0; i < fortnightlyResults.length; i++) {
         resultColumn[i + 1].innerHTML = fortnightlyResults[i];
@@ -344,7 +352,7 @@ function displayFortnightlyResult() {
 }
 
 function displayWeeklyResult() {
-    
+
     let resultColumn = document.getElementsByTagName('td');
     for (i = 0; i < weeklyResults.length; i++) {
         resultColumn[i + 1].innerHTML = weeklyResults[i];
@@ -352,7 +360,7 @@ function displayWeeklyResult() {
 }
 
 function displayDailyResult() {
-    
+
     let resultColumn = document.getElementsByTagName('td');
     for (i = 0; i < dailyResults.length; i++) {
         resultColumn[i + 1].innerHTML = dailyResults[i];
@@ -360,7 +368,7 @@ function displayDailyResult() {
 }
 
 function displayHourlyResult() {
-    
+
     let resultColumn = document.getElementsByTagName('td');
     for (i = 0; i < hourlyResults.length; i++) {
         resultColumn[i + 1].innerHTML = hourlyResults[i];
@@ -368,7 +376,7 @@ function displayHourlyResult() {
 }
 
 function displayMonthlyResult() {
-    
+
     let resultColumn = document.getElementsByTagName('td');
     for (i = 0; i < monthlyResults.length; i++) {
         resultColumn[i + 1].innerHTML = monthlyResults[i];
@@ -429,4 +437,3 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 };
-
