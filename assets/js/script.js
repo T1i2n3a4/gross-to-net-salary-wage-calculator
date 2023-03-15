@@ -10,6 +10,8 @@ function handleSubmit(event) {
     console.log("Calculate Runs");
     event.preventDefault();
 
+    
+
     console.log(`User's annual gross wage is ${annualGrossWage()}`);
     console.log(`Spouse's annual gross wage is ${spouseAnnualGrossWage()}`);
     console.log(`Higher income is ${getHigherIncome()}`);
@@ -25,6 +27,7 @@ function handleSubmit(event) {
     console.log(`Annual total tax is ${annualTotalTax()}`);
     console.log(`User's annual NET WAGE/SALARY is ${annualNetWage()}`);
     console.log(annualResults);
+    
 
     let userAnnualNetWage = annualNetWage();
     let userAnnualGrossWage = annualGrossWage();
@@ -44,7 +47,7 @@ function handleSubmit(event) {
     console.log(weeklyResults);
     console.log(dailyResults);
     console.log(hourlyResults);
-
+   
 
 
     let yearSelected = displayAnnualResult();
@@ -54,6 +57,7 @@ function handleSubmit(event) {
     let daySelected = displayDailyResult();
     let hourSelected = displayHourlyResult();
 
+    
 
 
     display();
@@ -217,9 +221,8 @@ function totalAnnualPaye() {
 }
 
 function annualPaye() {
-
-    let jointWage = annualGrossWage() + spouseAnnualGrossWage();
-    return totalAnnualPaye() * (annualGrossWage() / jointWage);
+  
+    return Math.round(totalAnnualPaye() * (annualGrossWage() / (annualGrossWage() + spouseAnnualGrossWage())));
 
 }
 
