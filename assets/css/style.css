@@ -76,68 +76,93 @@ main {
 
 /* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  }
-  
-  /* Modal Content */
-  .modal-content {
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
     position: relative;
     background-color: #fefefe;
     margin: auto;
     padding: 0;
     border: 1px solid #888;
     width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -webkit-animation-name: animatetop;
     -webkit-animation-duration: 0.4s;
     animation-name: animatetop;
     animation-duration: 0.4s
-  }
-  
-  /* Add Animation */
-  @-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:0; opacity:1}
-  }
-  
-  @keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-  }
-  
-  /* The Close Button */
-  .close {
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+/* The Close Button */
+.close {
     color: white;
     float: right;
     font-size: 28px;
     font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
+}
+
+.close:hover,
+.close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-  }
-  
-  .modal-header {
+}
+
+.modal-header {
     padding: 2px 16px;
     background-color: #5cb85c;
     color: white;
-  }
-  
-  .modal-body {padding: 2px 16px;}
-  
+}
+
+.modal-body {
+    padding: 2px 16px;
+}
+
 
 
 /* Form styling */
@@ -234,6 +259,7 @@ label {
 
 /* Result box */
 .result {
+
     width: 40%;
     background: gray;
     opacity: 0.9;
@@ -241,8 +267,9 @@ label {
 }
 
 table {
-    width: auto;
-    
+
+    width: 100%;
+
 }
 
 td {
@@ -260,8 +287,6 @@ td {
 }
 
 
-
-
 /* Footer */
 
 footer {
@@ -275,7 +300,7 @@ footer {
     align-items: center;
     justify-content: center;
     color: #fff;
-    
+
 }
 
 .footer-box a {
@@ -297,5 +322,143 @@ footer {
     color: white;
     padding: 0 50px;
     font-size: 15px;
+
+}
+
+/* Responsiveness */
+
+@media screen and (max-width: 1300px) {
+
+    .form-box {
+        width: 45%;
+    }
+}
+
+@media screen and (max-width: 1140px) {
+
+    .form-box {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 1030px) {
+
+    h1 {
+        letter-spacing: 0;
+    }
+
+    .form-box {
+        width: 55%;
+        padding: 10px;
+    }
+
+    .result {
+        padding: 10px;
+    }
+    table {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 935px) {
+
+    .input-result {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .form-box {
+        width: 80%;
+        padding: 20px;
+        margin: 10px;
+    }
+
+    .result {
+        width: 80%;
+        padding: 20px;
+        margin: 10px;
+    }
+}
+
+@media screen and (max-width: 935px) {
+
+    .footer-box span {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 750px) {
+
+    h1 {
+        font-size: 25px;
+    }
+
+    #myBtn {
+        font-size: 15px;
+    }
+
+    .footer-box span {
+        font-size: 15px;
+}
+}
+   
+@media screen and (max-width: 680px) {
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .form-box {
+        width: 90%;
+    }
+
+    .result {
+        width: 90%;
+            }
+
+    .websites a {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+
+    .logo {
+        height: 60px;
+    }
+
+    main {
+        margin-top: 60px;
+    }
     
+    h1, h2 {
+        font-size: 17px;
+    }
+
+    h3 {
+        font-size: 15px;
+    }
+
+    .form-box {
+        padding: 10px;
+        margin: 5px;
+        width: 95%;
+    }
+
+    .result {
+        padding: 10px;
+        margin: 5px;
+        width: 95%;
+    }
+
+    .footer-box {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .websites a {
+        padding-left: 20px;
+    }
 }

@@ -5,18 +5,18 @@ let detailsForm = document.getElementById('details-form');
 detailsForm.addEventListener('submit', handleSubmit);
 
 let annualResults = [];
-let yearSelected;
-let monthSelected;
-let fortnightSelected;
-let weekSelected;
-let daySelected;
-let hourSelected;
+// let yearSelected;
+// let monthSelected;
+// let fortnightSelected;
+// let weekSelected;
+// let daySelected;
+// let hourSelected;
 let monthlyResults;
 let fortnightlyResults;
 let weeklyResults;
 let dailyResults;
 let hourlyResults;
-let userAnnualPaye;
+// let userAnnualPaye;
 let taxCredits;
 
 function handleSubmit(event) {
@@ -33,55 +33,58 @@ function handleSubmit(event) {
     console.log(`Higher income tax at rate2 is ${higherIncomeTaxRate2()}`);
     console.log(`Lower income tax at rate2 is ${lowerIncomeTaxRate2()}`);
     console.log(`Annual gross tax is ${grossTax()}`);
-    console.log(`Annual PAYE is ${userAnnualPaye}`);
+    console.log(`Annual PAYE is ${annualPaye()}`);
     console.log(`Annual USC is ${annualUsc()}`);
     console.log(`User's annual annual PRSI is ${annualPrsi()}`);
     console.log(`Annual total tax is ${annualTotalTax()}`);
     console.log(`User's annual NET WAGE/SALARY is ${annualNetWage()}`);
-    console.log(totalAnnualPaye())
+    
   
-    console.log(`Annual Paye ${userAnnualPaye}`);
+    // console.log(`Annual Paye ${userAnnualPaye}`);
 
     let userAnnualNetWage = annualNetWage();
     let userAnnualGrossWage = annualGrossWage();
-    userAnnualPaye = annualPaye();
-    let userAnnualUsc = annualUsc();
-    let userAnnualPrsi = annualPrsi();
+    // let userAnnualPaye = annualPaye();
+    // let userAnnualUsc = annualUsc();
+    // let userAnnualPrsi = annualPrsi();
     let userAnnualTotalTax = annualTotalTax();
    
-    annualResults.push(userAnnualNetWage, userAnnualGrossWage, userAnnualPaye, userAnnualUsc, userAnnualPrsi, userAnnualTotalTax);
+    annualResults.push(userAnnualGrossWage, userAnnualTotalTax, userAnnualNetWage);
+    
     monthlyResults = getMonthlyResults(annualResults);
     fortnightlyResults = getFortnightlyResults(annualResults);
     weeklyResults = getWeeklyResults(annualResults);
     dailyResults = getDailyResults(annualResults);
     hourlyResults = getHourlyResults(annualResults);
 
-    console.log(`Annual results ${annualResults}`);
-    console.log(`Monthly results ${monthlyResults}`);
-    console.log(`Fortnightly results ${fortnightlyResults}`);
-    console.log(`Weekly results ${weeklyResults}`);
-    console.log(`Daily results ${dailyResults}`);
-    console.log(`Hourly results${hourlyResults}`);
+    // console.log(`Annual results ${annualResults}`);
+    // console.log(`Monthly results ${monthlyResults}`);
+    // console.log(`Fortnightly results ${fortnightlyResults}`);
+    // console.log(`Weekly results ${weeklyResults}`);
+    // console.log(`Daily results ${dailyResults}`);
+    // console.log(`Hourly results${hourlyResults}`);
         
-    monthSelected = displayMonthlyResult();
-    fortnightSelected = displayFortnightlyResult();
-    weekSelected = displayWeeklyResult();
-    daySelected = displayDailyResult();
-    hourSelected = displayHourlyResult();
-    yearSelected = displayAnnualResult();
+    // monthSelected = displayMonthlyResult();
+    // fortnightSelected = displayFortnightlyResult();
+    // weekSelected = displayWeeklyResult();
+    // daySelected = displayDailyResult();
+    // hourSelected = displayHourlyResult();
+    // yearSelected = displayAnnualResult();
     
     
     taxCredits = annualTaxCredits();
     console.log(`tax credits ${taxCredits}`)
 
 
-    display();
+    displayAnnualResult();
+    displayMonthlyResult();
+    displayFortnightlyResult();
+    displayWeeklyResult();
+    displayDailyResult();
+    displayHourlyResult();
 
 }
 
-// let periodResult = document.getElementById("period-result");
-// periodResult.addEventListener("change", display());
-  
 
 // const input = document.querySelectorAll("input");
 // for (let i = 0; i < input.length; i++) {
@@ -371,80 +374,75 @@ function getHourlyResults(array) {
 }
 
 /**Displays calculator results
- * in the table 2nd column
+ * in the table 
  */
 function displayAnnualResult() {
 
-    let resultColumn = document.getElementsByTagName('td');
+    let annualResultRow = document.getElementsByClassName('annual-result');
     for (i = 0; i < annualResults.length; i++) {
-        resultColumn[i + 1].innerHTML = annualResults[i];
+        annualResultRow[i + 1].innerHTML = annualResults[i];
     }
 }
 
-/**Displays calculator results
- * in the table 2nd column for month period
- */
-
-
 function displayFortnightlyResult() {
 
-    let resultColumn = document.getElementsByTagName('td');
+    let fortnightResultRow = document.getElementsByClassName('fortnightly-result');
     for (i = 0; i < fortnightlyResults.length; i++) {
-        resultColumn[i + 1].innerHTML = fortnightlyResults[i];
+        fortnightResultRow[i + 1].innerHTML = fortnightlyResults[i];
     }
 }
 
 function displayWeeklyResult() {
 
-    let resultColumn = document.getElementsByTagName('td');
+    let weeklyResultRow = document.getElementsByClassName('monthly-result');
     for (i = 0; i < weeklyResults.length; i++) {
-        resultColumn[i + 1].innerHTML = weeklyResults[i];
+        weeklyResultRow[i + 1].innerHTML = weeklyResults[i];
     }
 }
 
 function displayDailyResult() {
 
-    let resultColumn = document.getElementsByTagName('td');
+    let dailyResultRow = document.getElementsByClassName('daily-result');
     for (i = 0; i < dailyResults.length; i++) {
-        resultColumn[i + 1].innerHTML = dailyResults[i];
+        dailyResultRow[i + 1].innerHTML = dailyResults[i];
     }
 }
 
 function displayHourlyResult() {
 
-    let resultColumn = document.getElementsByTagName('td');
+    let hourlyResultRow = document.getElementsByClassName('hourly-result');
     for (i = 0; i < hourlyResults.length; i++) {
-        resultColumn[i + 1].innerHTML = hourlyResults[i];
+        hourlyResultRow[i + 1].innerHTML = hourlyResults[i];
     }
 }
 
 function displayMonthlyResult() {
 
-    let resultColumn = document.getElementsByTagName('td');
+    let monthlyResultRow = document.getElementsByClassName('monthly-result');
     for (i = 0; i < monthlyResults.length; i++) {
-        resultColumn[i + 1].innerHTML = monthlyResults[i];
+        monthlyResultRow[i + 1].innerHTML = monthlyResults[i];
     }
 }
 
-function display() {
-    console.log("Display is working");
-    let resultPeriod = document.getElementById("period-result").value;
-    console.log("resultPeriod");
-    console.log(resultPeriod);
-    if (resultPeriod === "month") {
-        return monthSelected;
-    } else if (resultPeriod === "fortnight") {
-        return fortnightSelected;
-    } else if (resultPeriod === "week") {
-        return weekSelected;
-    } else if (resultPeriod === "day") {
-        return daySelected;
-    } else if (resultPeriod === "hour") {
-        return hourSelected;
-    } else {
-        return yearSelected;
-    }
-}
+// function display() {
+//     console.log("Display is working");
+//     let resultPeriod = document.getElementById("period-result").value;
+//     console.log("resultPeriod");
+//     console.log(resultPeriod);
+//     if (resultPeriod === "month") {
+//         return monthSelected;
+//     } else if (resultPeriod === "fortnight") {
+//         return fortnightSelected;
+//     } else if (resultPeriod === "week") {
+//         return weekSelected;
+//     } else if (resultPeriod === "day") {
+//         return daySelected;
+//     } else if (resultPeriod === "hour") {
+//         return hourSelected;
+//     } else {
+//         return yearSelected;
+//     }
+// }
 
 document.getElementById("mouse-over").addEventListener("mouseover", mouseOver);
 document.getElementById("mouse-over").addEventListener("mouseout", mouseOut);
