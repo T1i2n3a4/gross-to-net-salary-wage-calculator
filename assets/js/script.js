@@ -1,5 +1,5 @@
 // document.addEventListener("DOMContentLoaded", function() {
-//     document.getElementById("user-wage-input").focus();
+    document.getElementById("user-wage-input").focus();
 
 let detailsForm = document.getElementById('details-form');
 detailsForm.addEventListener('submit', handleSubmit);
@@ -9,7 +9,7 @@ let annualResults = [];
 function handleSubmit(event) {
     console.log("Calculate Runs");
     event.preventDefault();
-
+    
     console.log(`User's annual gross wage is ${annualGrossWage()}`);
     console.log(`Spouse's annual gross wage is ${spouseAnnualGrossWage()}`);
     console.log(`Higher income is ${getHigherIncome()}`);
@@ -25,9 +25,6 @@ function handleSubmit(event) {
     console.log(`Annual total tax is ${annualTotalTax()}`);
     console.log(`User's annual NET WAGE/SALARY is ${annualNetWage()}`);
     console.log(annualResults);
-    
-      
-    
     
     let userAnnualNetWage = annualNetWage();
     let userAnnualGrossWage = annualGrossWage();
@@ -48,8 +45,21 @@ function handleSubmit(event) {
     console.log(dailyResults);
     console.log(hourlyResults);
     
+    
+
+    let yearSelected = displayAnnualResult();
+    let monthSelected = displayMonthlyResult();
+    let fortnightSelected = displayFortnightlyResult();
+    let weekSelected = displayWeeklyResult();
+    let daySelected = displayDailyResult();
+    let hourSelected = displayHourlyResult();
+
+    
+
     display();
+    
 }
+
 // document.getElementById("gross-wage-result").innerHTML = annualGrossWage;
 
 
@@ -193,9 +203,16 @@ function grossTax() {
 /**Calculates the annual income tax 
  * reduced by tax credits
  */
-function annualPaye() {
+function totalAnnualPaye() {
     let taxCredits = document.getElementById("tax-credits").value;
     return grossTax() - taxCredits;
+}
+
+function annualPaye() {
+    
+    let jointWage = annualGrossWage() + spouseAnnualGrossWage();
+    return totalAnnualPaye() * (annualGrossWage() / jointWage);
+
 }
 
 /**Calculates user's annual USC 
@@ -220,11 +237,11 @@ function annualUsc() {
     if (annualGrossWage() <= uscBands.band0) {
         return 0;
     } else if (annualGrossWage() <= uscBands.band1 + uscBands.band2) {
-        return uscBands.band1 * uscRates.rate1 + (annualGrossWage() - uscBands.band1) * uscRates.rate2;
+        return Math.round(uscBands.band1 * uscRates.rate1 + (annualGrossWage() - uscBands.band1) * uscRates.rate2);
     } else if (annualGrossWage() <= uscBands.band1 + uscBands.band2 + uscBands.band3) {
-        return uscBands.band1 * uscRates.rate1 + uscBands.band2 * uscRates.rate2 + (annualGrossWage() - (uscBands.band1 + uscBands.band2)) * uscRates.rate3;
+        return Math.round(uscBands.band1 * uscRates.rate1 + uscBands.band2 * uscRates.rate2 + (annualGrossWage() - (uscBands.band1 + uscBands.band2)) * uscRates.rate3);
     } else
-        return uscBands.band1 * uscRates.rate1 + uscBands.band2 * uscRates.rate2 + uscBands.band3 * uscRates.rate3 + band4 * uscRates.rate4;
+        return Math.round(uscBands.band1 * uscRates.rate1 + uscBands.band2 * uscRates.rate2 + uscBands.band3 * uscRates.rate3 + band4 * uscRates.rate4);
 }
 
 /**
@@ -234,7 +251,7 @@ function annualUsc() {
 function annualPrsi() {
 
     const prsiRate = 4;
-    return annualGrossWage() * prsiRate / 100;
+    return Math.round(annualGrossWage() * prsiRate / 100);
 }
 
 /**Calculates total annual tax
@@ -250,14 +267,14 @@ function annualTotalTax() {
     for (i = 0; i < totalTax.length; i += 1) {
         sum += totalTax[i];
     }
-    return sum;
+    return Math.round(sum);
 }
 
 /**Calculates user's annual net wage 
  * reducing annual gross wage by annual total tax
  */
 function annualNetWage() {
-    return annualGrossWage() - annualTotalTax();
+    return Math.round(annualGrossWage() - annualTotalTax());
 }
 
 function getMonthlyResults(array) {
@@ -305,19 +322,75 @@ function getHourlyResults(array) {
 /**Displays calculator results
  * in the table 2nd column
  */
-function display() {
+function displayAnnualResult() {
     
     let resultColumn = document.getElementsByTagName('td');
     for (i = 0; i < annualResults.length; i++) {
         resultColumn[i + 1].innerHTML = annualResults[i];
     }
-
 }
 
+/**Displays calculator results
+ * in the table 2nd column for month period
+ */
 
 
+function displayFortnightlyResult() {
+    
+    let resultColumn = document.getElementsByTagName('td');
+    for (i = 0; i < fortnightlyResults.length; i++) {
+        resultColumn[i + 1].innerHTML = fortnightlyResults[i];
+    }
+}
 
+function displayWeeklyResult() {
+    
+    let resultColumn = document.getElementsByTagName('td');
+    for (i = 0; i < weeklyResults.length; i++) {
+        resultColumn[i + 1].innerHTML = weeklyResults[i];
+    }
+}
 
+function displayDailyResult() {
+    
+    let resultColumn = document.getElementsByTagName('td');
+    for (i = 0; i < dailyResults.length; i++) {
+        resultColumn[i + 1].innerHTML = dailyResults[i];
+    }
+}
+
+function displayHourlyResult() {
+    
+    let resultColumn = document.getElementsByTagName('td');
+    for (i = 0; i < hourlyResults.length; i++) {
+        resultColumn[i + 1].innerHTML = hourlyResults[i];
+    }
+}
+
+function displayMonthlyResult() {
+    
+    let resultColumn = document.getElementsByTagName('td');
+    for (i = 0; i < monthlyResults.length; i++) {
+        resultColumn[i + 1].innerHTML = monthlyResults[i];
+    }
+}
+
+function display() {
+    let resultPeriod = document.getElementById("period-result").value;
+    if (resultPeriod === "month") {
+        return monthSelected;
+    } else if (resultPeriod === "fortnight") {
+        return fortnightSelected;
+    } else if (resultPeriod === "week") {
+        return weekSelected;
+    } else if (resultPeriod === "day") {
+        return daySelected;
+    } else if (resultPeriod === "hour") {
+        return hourSelected;
+    } else {
+        return yearSelected;
+    }
+}
 
 document.getElementById("mouse-over").addEventListener("mouseover", mouseOver);
 document.getElementById("mouse-over").addEventListener("mouseout", mouseOut);
@@ -356,3 +429,4 @@ window.onclick = function (event) {
         modal.style.display = "none";
     }
 };
+
