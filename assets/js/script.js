@@ -5,71 +5,31 @@ let detailsForm = document.getElementById('details-form');
 detailsForm.addEventListener('submit', handleSubmit);
 
 let annualResults = [];
-// let yearSelected;
-// let monthSelected;
-// let fortnightSelected;
-// let weekSelected;
-// let daySelected;
-// let hourSelected;
+
 let monthlyResults;
 let fortnightlyResults;
 let weeklyResults;
 let dailyResults;
 let hourlyResults;
-// let userAnnualPaye;
+
 let taxCredits;
 
 function handleSubmit(event) {
     console.log("Calculate Runs");
     event.preventDefault();
-    
-
-    console.log(`User's annual gross wage is ${annualGrossWage()}`);
-    console.log(`Spouse's annual gross wage is ${spouseAnnualGrossWage()}`);
-    console.log(`Higher income is ${getHigherIncome()}`);
-    console.log(`Lower income is ${lowerIncome()}`);
-    console.log(`Higher income tax at rate1 is ${higherIncomeTaxRate1()}`);
-    console.log(`Lower income tax at rate1 is ${lowerIncomeTaxRate1()}`);
-    console.log(`Higher income tax at rate2 is ${higherIncomeTaxRate2()}`);
-    console.log(`Lower income tax at rate2 is ${lowerIncomeTaxRate2()}`);
-    console.log(`Annual gross tax is ${grossTax()}`);
-    console.log(`Annual PAYE is ${annualPaye()}`);
-    console.log(`Annual USC is ${annualUsc()}`);
-    console.log(`User's annual annual PRSI is ${annualPrsi()}`);
-    console.log(`Annual total tax is ${annualTotalTax()}`);
-    console.log(`User's annual NET WAGE/SALARY is ${annualNetWage()}`);
-    
-  
-    // console.log(`Annual Paye ${userAnnualPaye}`);
 
     let userAnnualNetWage = annualNetWage();
-    let userAnnualGrossWage = annualGrossWage();
-    // let userAnnualPaye = annualPaye();
-    // let userAnnualUsc = annualUsc();
-    // let userAnnualPrsi = annualPrsi();
+    let userAnnualGrossWage = Number(annualGrossWage());
     let userAnnualTotalTax = annualTotalTax();
    
     annualResults.push(userAnnualGrossWage, userAnnualTotalTax, userAnnualNetWage);
-    
+    console.log(annualResults);
     monthlyResults = getMonthlyResults(annualResults);
     fortnightlyResults = getFortnightlyResults(annualResults);
     weeklyResults = getWeeklyResults(annualResults);
     dailyResults = getDailyResults(annualResults);
     hourlyResults = getHourlyResults(annualResults);
-
-    // console.log(`Annual results ${annualResults}`);
-    // console.log(`Monthly results ${monthlyResults}`);
-    // console.log(`Fortnightly results ${fortnightlyResults}`);
-    // console.log(`Weekly results ${weeklyResults}`);
-    // console.log(`Daily results ${dailyResults}`);
-    // console.log(`Hourly results${hourlyResults}`);
         
-    // monthSelected = displayMonthlyResult();
-    // fortnightSelected = displayFortnightlyResult();
-    // weekSelected = displayWeeklyResult();
-    // daySelected = displayDailyResult();
-    // hourSelected = displayHourlyResult();
-    // yearSelected = displayAnnualResult();
     
     
     taxCredits = annualTaxCredits();
@@ -84,15 +44,6 @@ function handleSubmit(event) {
     displayHourlyResult();
 
 }
-
-
-// const input = document.querySelectorAll("input");
-// for (let i = 0; i < input.length; i++) {
-//     input.addEventListener("change", display())   
-// }
-
-// document.getElementById("gross-wage-result").innerHTML = annualGrossWage;
-
 
 /**
  * Calculates users's annual gross wage 
@@ -251,7 +202,6 @@ function annualTaxCredits() {
     }
 }
 
-
 /**Calculates the annual income tax 
  * reduced by tax credits
  */
@@ -259,7 +209,6 @@ function totalAnnualPaye() {
     
     let taxCredits = annualTaxCredits();
     return grossTax() - taxCredits;
-    
 }
 
 
@@ -381,6 +330,7 @@ function displayAnnualResult() {
     let annualResultRow = document.getElementsByClassName('annual-result');
     for (i = 0; i < annualResults.length; i++) {
         annualResultRow[i + 1].innerHTML = annualResults[i];
+        console.log(annualResults);
     }
 }
 
@@ -424,25 +374,6 @@ function displayMonthlyResult() {
     }
 }
 
-// function display() {
-//     console.log("Display is working");
-//     let resultPeriod = document.getElementById("period-result").value;
-//     console.log("resultPeriod");
-//     console.log(resultPeriod);
-//     if (resultPeriod === "month") {
-//         return monthSelected;
-//     } else if (resultPeriod === "fortnight") {
-//         return fortnightSelected;
-//     } else if (resultPeriod === "week") {
-//         return weekSelected;
-//     } else if (resultPeriod === "day") {
-//         return daySelected;
-//     } else if (resultPeriod === "hour") {
-//         return hourSelected;
-//     } else {
-//         return yearSelected;
-//     }
-// }
 
 document.getElementById("mouse-over").addEventListener("mouseover", mouseOver);
 document.getElementById("mouse-over").addEventListener("mouseout", mouseOut);

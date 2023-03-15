@@ -42,13 +42,17 @@ header {
     background: black;
 }
 
+.logo {
+    height: 70px;
+}
+
 h1 {
     color: white;
     text-align: left;
 }
 
 main {
-    margin-top: 80px;
+    margin-top: 70px;
     background: url(../images/euro-coins1.jpg);
 }
 
@@ -57,7 +61,7 @@ main {
 #myBtn {
     text-align: center;
     width: auto;
-    height: 60px;
+    height: 40px;
     background: darkgray;
     font-size: large;
     padding-left: 10px;
@@ -278,11 +282,11 @@ td {
     text-align: center;
 }
 
-#net-wage-result {
+/* #net-wage-result {
     background: #338311;
-}
+} */
 
-.net-wage {
+.net {
     background: #338311;
 }
 
@@ -432,7 +436,7 @@ footer {
     main {
         margin-top: 60px;
     }
-    
+
     h1, h2 {
         font-size: 17px;
     }
