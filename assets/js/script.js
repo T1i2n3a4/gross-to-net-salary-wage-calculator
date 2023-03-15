@@ -5,11 +5,23 @@ let detailsForm = document.getElementById('details-form');
 detailsForm.addEventListener('submit', handleSubmit);
 
 let annualResults = [];
+let yearSelected;
+let monthSelected;
+let fortnightSelected;
+let weekSelected;
+let daySelected;
+let hourSelected;
+let monthlyResults;
+let fortnightlyResults;
+let weeklyResults;
+let dailyResults;
+let hourlyResults;
+let userAnnualPaye;
+let taxCredits;
 
 function handleSubmit(event) {
     console.log("Calculate Runs");
     event.preventDefault();
-
     
 
     console.log(`User's annual gross wage is ${annualGrossWage()}`);
@@ -21,56 +33,60 @@ function handleSubmit(event) {
     console.log(`Higher income tax at rate2 is ${higherIncomeTaxRate2()}`);
     console.log(`Lower income tax at rate2 is ${lowerIncomeTaxRate2()}`);
     console.log(`Annual gross tax is ${grossTax()}`);
-    console.log(`Annual PAYE is ${annualPaye()}`);
+    console.log(`Annual PAYE is ${userAnnualPaye}`);
     console.log(`Annual USC is ${annualUsc()}`);
     console.log(`User's annual annual PRSI is ${annualPrsi()}`);
     console.log(`Annual total tax is ${annualTotalTax()}`);
     console.log(`User's annual NET WAGE/SALARY is ${annualNetWage()}`);
-    console.log(annualResults);
-    
+    console.log(totalAnnualPaye())
+  
+    console.log(`Annual Paye ${userAnnualPaye}`);
 
     let userAnnualNetWage = annualNetWage();
     let userAnnualGrossWage = annualGrossWage();
-    let userAnnualPaye = annualPaye();
+    userAnnualPaye = annualPaye();
     let userAnnualUsc = annualUsc();
     let userAnnualPrsi = annualPrsi();
     let userAnnualTotalTax = annualTotalTax();
-    annualResults.push(userAnnualNetWage, userAnnualGrossWage, userAnnualPaye, userAnnualUsc, userAnnualPrsi, userAnnualTotalTax);
-    let monthlyResults = getMonthlyResults(annualResults);
-    let fortnightlyResults = getFortnightlyResults(annualResults);
-    let weeklyResults = getWeeklyResults(annualResults);
-    let dailyResults = getDailyResults(annualResults);
-    let hourlyResults = getHourlyResults(annualResults);
-
-    console.log(monthlyResults);
-    console.log(fortnightlyResults);
-    console.log(weeklyResults);
-    console.log(dailyResults);
-    console.log(hourlyResults);
    
+    annualResults.push(userAnnualNetWage, userAnnualGrossWage, userAnnualPaye, userAnnualUsc, userAnnualPrsi, userAnnualTotalTax);
+    monthlyResults = getMonthlyResults(annualResults);
+    fortnightlyResults = getFortnightlyResults(annualResults);
+    weeklyResults = getWeeklyResults(annualResults);
+    dailyResults = getDailyResults(annualResults);
+    hourlyResults = getHourlyResults(annualResults);
 
-
-    let yearSelected = displayAnnualResult();
-    let monthSelected = displayMonthlyResult();
-    let fortnightSelected = displayFortnightlyResult();
-    let weekSelected = displayWeeklyResult();
-    let daySelected = displayDailyResult();
-    let hourSelected = displayHourlyResult();
-
+    console.log(`Annual results ${annualResults}`);
+    console.log(`Monthly results ${monthlyResults}`);
+    console.log(`Fortnightly results ${fortnightlyResults}`);
+    console.log(`Weekly results ${weeklyResults}`);
+    console.log(`Daily results ${dailyResults}`);
+    console.log(`Hourly results${hourlyResults}`);
+        
+    monthSelected = displayMonthlyResult();
+    fortnightSelected = displayFortnightlyResult();
+    weekSelected = displayWeeklyResult();
+    daySelected = displayDailyResult();
+    hourSelected = displayHourlyResult();
+    yearSelected = displayAnnualResult();
     
+    
+    taxCredits = annualTaxCredits();
+    console.log(`tax credits ${taxCredits}`)
 
 
     display();
 
 }
 
-let periodResult = document.getElementById("period-result");
-periodResult.addEventListener("change", display());
- 
+// let periodResult = document.getElementById("period-result");
+// periodResult.addEventListener("change", display());
+  
 
-const input = document.querySelector("input");
-input.addEventListener("change", display());
-
+// const input = document.querySelectorAll("input");
+// for (let i = 0; i < input.length; i++) {
+//     input.addEventListener("change", display())   
+// }
 
 // document.getElementById("gross-wage-result").innerHTML = annualGrossWage;
 
@@ -211,19 +227,43 @@ function grossTax() {
     return sum;
 }
 
+/**Returns annual tax credits 
+ * for 3 situations:
+ * 1) if the user enters the tax credits in the form field = considered single assessed;
+ * 2) if tax credits and spouse wage are missing in the input fields = considered joint assessed;
+ * 3) if tax credits are missing, houever the spouse income is entered = personalized assessement.
+*/
+function annualTaxCredits() {
+    let taxCreditsInput = Number(document.getElementById("tax-credits").value);
+    let singlePersonTaxCredit = 1775;
+    let employeeTaxCredit = 1775;
+    let marriedPersonTaxCredit = 3550;
+    let spouseWageInput = Number(document.getElementById("spouse-wage-input").value);
+    if (taxCreditsInput === 0 && spouseWageInput === 0) {
+        return singlePersonTaxCredit + employeeTaxCredit;
+    } else if (taxCreditsInput === 0 && spouseWageInput !== 0) {
+        return marriedPersonTaxCredit + employeeTaxCredit * 2;
+    } else {
+        return taxCreditsInput;
+    }
+}
+
 
 /**Calculates the annual income tax 
  * reduced by tax credits
  */
 function totalAnnualPaye() {
-    let taxCredits = document.getElementById("tax-credits").value;
+    
+    let taxCredits = annualTaxCredits();
     return grossTax() - taxCredits;
+    
 }
 
-function annualPaye() {
-  
-    return Math.round(totalAnnualPaye() * (annualGrossWage() / (annualGrossWage() + spouseAnnualGrossWage())));
 
+function annualPaye() {
+let getPaye = totalAnnualPaye() * (annualGrossWage() / (annualGrossWage() + spouseAnnualGrossWage()));
+console.log(getPaye);
+return getPaye;
 }
 
 /**Calculates user's annual USC 
@@ -291,7 +331,7 @@ function annualNetWage() {
 function getMonthlyResults(array) {
     const newArray = [];
     for (let i = 0; i < array.length; i++) {
-        newArray[i] = array[i] / 12;
+        newArray[i] = Math.round(array[i] / 12);
     }
     return newArray;
 }
@@ -299,7 +339,7 @@ function getMonthlyResults(array) {
 function getFortnightlyResults(array) {
     const newArray = [];
     for (let i = 0; i < array.length; i++) {
-        newArray[i] = array[i] / 52 * 2;
+        newArray[i] = Math.round(array[i] / 52 * 2);
     }
     return newArray;
 }
@@ -307,7 +347,7 @@ function getFortnightlyResults(array) {
 function getWeeklyResults(array) {
     const newArray = [];
     for (let i = 0; i < array.length; i++) {
-        newArray[i] = array[i] / 52;
+        newArray[i] = Math.round(array[i] / 52);
     }
     return newArray;
 }
@@ -316,7 +356,7 @@ function getDailyResults(array) {
     let workingDaysPerWeek = document.getElementById('user-working-ds-weekly').value;
     const newArray = [];
     for (let i = 0; i < array.length; i++) {
-        newArray[i] = array[i] / 52 / workingDaysPerWeek;
+        newArray[i] = Math.round(array[i] / 52 / workingDaysPerWeek);
     }
     return newArray;
 }
@@ -325,7 +365,7 @@ function getHourlyResults(array) {
     let workingHsPerWeek = document.getElementById('user-working-hs-weekly').value;
     const newArray = [];
     for (let i = 0; i < array.length; i++) {
-        newArray[i] = array[i] / 52 / workingHsPerWeek;
+        newArray[i] = Math.round(array[i] / 52 / workingHsPerWeek);
     }
     return newArray;
 }
@@ -387,7 +427,10 @@ function displayMonthlyResult() {
 }
 
 function display() {
+    console.log("Display is working");
     let resultPeriod = document.getElementById("period-result").value;
+    console.log("resultPeriod");
+    console.log(resultPeriod);
     if (resultPeriod === "month") {
         return monthSelected;
     } else if (resultPeriod === "fortnight") {
@@ -425,18 +468,18 @@ var btn = document.getElementById("myBtn");
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal 
-btn.onclick = function () {
-    modal.style.display = "block";
-};
+btn.onclick = function() {
+  modal.style.display = "block";
+}
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-    modal.style.display = "none";
-};
+span.onclick = function() {
+  modal.style.display = "none";
+}
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-};
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}

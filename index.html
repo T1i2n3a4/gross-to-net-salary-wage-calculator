@@ -57,7 +57,7 @@
                             <div class="wage">
                                 <label for="user-wage-input">Your Gross Salary/Wage:</label><br>
                                 <input type="number" id="user-wage-input" name="user-wage-input" class="number-input" step="0.01"
-                                    required>
+                                value="0" required>
                                 <select name="user-selected-period" id="user-selected-period" class="period">
                                     <option value="year">Year</option>
                                     <option value="month">Month</option>
@@ -69,10 +69,10 @@
                             </div>
                             <label for="user-working-hs-weekly">Working Hours Per Week:</label>
                             <input type="number" id="user-working-hs-weekly" name="user-working-hs-weekly"
-                                class="number-input" step="0.01">
+                                class="number-input" step="0.01" value="0" required>
                             <label for="user-working-ds-weekly">Working Days Per Week:</label>
                             <input type="number" id="user-working-ds-weekly" name="user-working-ds-weekly"
-                                class="number-input">
+                                class="number-input" value="0" required>
                         </div>
 
                         <!-- spouse wage input -->
@@ -81,7 +81,7 @@
                             <div class="wage">
                                 <label for="spouse-wage-input">Spouse Gross Salary/Wage:</label><br>
                                 <input type="number" id="spouse-wage-input" name="spouse-wage-input"
-                                    class="number-input" step="0.01">
+                                    class="number-input" step="0.01" value="0" required>
                                 <select name="spouse-period-selected" id="spouse-period-selected" class="period">
                                     <option value="year">Year</option>
                                     <option value="month">Month</option>
@@ -93,10 +93,10 @@
                             </div>
                             <label for="spouse-working-hs-weekly">Working Hours Per Week (Spouse):</label>
                             <input type="number" id="spouse-working-hs-weekly" name="spouse-working-hs-weekly"
-                                class="number-input" step="0.01">
+                                class="number-input" step="0.01" value="0" required>
                             <label for="spouse-working-ds-weekly">Working Days Per Week (Spouse):</label>
                             <input type="number" id="spouse-working-ds-weekly" name="spouse-working-ds-weekly"
-                                class="number-input">
+                                class="number-input" step="0.01" value="0" required>
 
                         </div>
                     </div>
@@ -104,11 +104,11 @@
                     <div class="centre">
                         <div>
                             <label for="first-tax-band">Rate1 Tax Band:</label><br>
-                            <input type="number" id="first-tax-band" name="first-tax-band" class="number-input" step="0.01"><br>
+                            <input type="number" id="first-tax-band" name="first-tax-band" class="number-input" step="0.01" value="0" required><br>
                         </div>
                         <div>
                             <label for="tax-credits">Total Tax Credits:</label><br>
-                            <input type="number" id="tax-credits" name="tax-credits" class="number-input" step="0.01">
+                            <input type="number" id="tax-credits" name="tax-credits" class="number-input" step="0.01" value="0" required>
                         </div>
                     </div>
                     <div class="center-button">
@@ -122,40 +122,44 @@
                 <table>
                     <tr>
                         <td></td>
-                        <th>
-                            <!-- <label for="period-result">Select period</label><br> -->
-                            <select name="period-result" id="period-result" class="period">
-                                <option value="year">Year</option>
-                                <option value="month">Month</option>
-                                <option value="fortnight">Fortnight</option>
-                                <option value="week">Week</option>
-                                <option value="day">Day</option>
-                                <option value="hour">Hour</option>
-                            </select>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th class="net-wage">NET SALARY/WAGE</th>
-                        <td id="net-wage-result"></td>
-                    </tr>
-                    <tr>
-                        <th>Gross Salary/Wage</th>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th>PAYE</th>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th>USC</th>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <th>PRSI</th>
-                        <td></td>
-                    </tr>
-                    <tr>
+                        <th>Gross<br>Salary/Wage</th>
                         <th>Total Tax</th>
+                        <th class="net-wage">NET<br> SALARY/WAGE</th>
+                    </tr>
+                    <tr>
+                        <th>Annualy</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Monthly</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Fortnightly</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Weekly</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Daily</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th>Hourly</th>
+                        <td></td>
+                        <td></td>
                         <td></td>
                     </tr>
                 </table>
@@ -165,13 +169,19 @@
     </main>
     <footer>
         <div class="footer-box">
-            <span>More info about Employment Pay on:</span>
-            <span><a href="https://www.revenue.ie/en/jobs-and-pensions/index.aspx" target="_blank" rel="noopener"
-                aria-label="Salary/wage info on Revenue.ie"></a></span>
-            <span><a href="https://www.citizensinformation.ie/en/employment/employment_rights_and_conditions/pay_and_employment/"
-                target="_blank" rel="noopener" aria-label="Salary/wage info on Citizensinformation.ie"></a></span>
+            <span>Employment Pay Info on:</span>
+            <ul class="websites">
+            <li>
+                <a href="https://www.revenue.ie" target="_blank" rel="noopener" aria-label="Salary/wage info on Revenue.ie">Revenue.ie</a>
+            </li>
+            <li>
+                <a href="https://www.citizensinformation.ie"
+                target="_blank" rel="noopener" aria-label="Salary/wage info on Citizensinformation.ie">Citizens Information.ie</a>
+            </li>
+        </ul>
         </div>
     </footer>
+    
 
 
     <script src="assets/js/script.js"></script>
