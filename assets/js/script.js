@@ -35,7 +35,7 @@ function handleSubmit(event) {
     function reload() {
         window.location.reload();
     }
-
+    
     displayAnnualResult();
     displayMonthlyResult();
     displayFortnightlyResult();
@@ -168,6 +168,7 @@ function lowerIncomeTaxRate2() {
  * at 2 rates
  */
 function grossTax() {
+    
     let totalGrossTax = [
         higherIncomeTaxRate1(),
         higherIncomeTaxRate2(),
@@ -179,7 +180,7 @@ function grossTax() {
         sum += totalGrossTax[i];
     }
     return sum;
-}
+   }
 
 /**Returns annual tax credits 
  * for 3 situations:
@@ -205,17 +206,19 @@ function annualTaxCredits() {
 /**Calculates the annual income tax 
  * reduced by tax credits
  */
-function totalAnnualPaye() {
-    
-    let taxCredits = annualTaxCredits();
-    return grossTax() - taxCredits;
-}
-
-
 function annualPaye() {
-let getPaye = totalAnnualPaye() * (annualGrossWage() / (annualGrossWage() + spouseAnnualGrossWage()));
-return getPaye * 10;
+    let jointSalary = Number(annualGrossWage()) + Number(spouseAnnualGrossWage());
+    console.log(jointSalary)
+    let totalPaye = grossTax() - annualTaxCredits();
+    console.log(grossTax() - annualTaxCredits());
+    return totalPaye * annualGrossWage() / jointSalary;
 }
+
+
+// function annualPaye() {
+// let getPaye = totalAnnualPaye() * (annualGrossWage() / (annualGrossWage() + spouseAnnualGrossWage()));
+// return getPaye * 10;
+// }
 
 /**Calculates user's annual USC 
  * using different rates for different thresholds 
