@@ -1,4 +1,3 @@
-// document.addEventListener("DOMContentLoaded", function() {
 document.getElementById("user-wage-input").focus();
 
 let detailsForm = document.getElementById('details-form');

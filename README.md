@@ -203,13 +203,19 @@ As a first time, returning or frequent visitor, I expect to:
     * [W3C Validator](https://validator.w3.org/) was used for HTML validation.
     * No errors or warnings have been found.
 
-    ![HTML validation result](docs/readme-images/about-us-html-validator.png)
+    ![HTML validation result](docs/reademe-images/html-validation.png)
 
 * CSS
     * [W3C CSS validator (Jigsaw)](https://jigsaw.w3.org/css-validator/) was used for CSS validation.
     * No errors have been found.
 
-    ![CSS validation result](docs/readme-images/w3c-css-validator.png)
+    ![CSS validation result](docs/reademe-images/css-validation.png)
+
+* JavaScript
+    * [JSHint)](https://jshint.com/) was used for CSS validation.
+    * No errors have been found.
+
+    ![JSHint validator result](docs/reademe-images/js-validation.png)
 
 ### Lighthouse Testing
 
