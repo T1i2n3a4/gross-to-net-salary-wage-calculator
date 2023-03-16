@@ -222,7 +222,7 @@ As a first time, returning or frequent visitor, I expect to:
 * Performance, Accessibility, Best Practices and SEO for each page were tested by running them through Lighthouse in DevTools.
 * The results are presented below.
 
-![About us page Lighthouse](docs/readme-images/about-us-lighthouse.png)
+![About us page Lighthouse](docs/reademe-images/lighthouse-testing.png)
 
 ### Responsiveness
 
@@ -243,7 +243,7 @@ As a first time, returning or frequent visitor, I expect to:
 * Accessibility evaluation results are presented below.
     * About us page accessibility evaluation result:
 
-    ![Accessibility evaluation result](docs/readme-images/about-us-accessibility-evaluation.png)
+    ![Accessibility evaluation result](docs/reademe-images/accesibility-testing.png)
 
 
 ### Functional testing
@@ -260,12 +260,12 @@ As a first time, returning or frequent visitor, I expect to:
     * If one of the fields is empty a warning message "Please fill this field" appears when click to submit.
     * Value 0 is set by default to ensure the correct computations when the user doesn't fill some fields.
     * If correct inputs are submitted, no warning or errors appear. 
-    ![Form testing result](docs/readme-images/form-testing.png)
+    ![Form testing result](docs/reademe-images/form-testing.png)
 
 ### Fixed bugs
-
-    
-
+ 
+ * Improving contrast
+  
 ### Unfixed bugs
 
 
@@ -313,7 +313,7 @@ The project is cloned on my local machine.
     * The logo picture for the website was taken from [PngWing](https://www.pngwing.com/):
         * "logo.png" - [Computer Icons Payroll Salary Calculator](https://www.pngwing.com/en/free-png-zqihu/download)
     * The background picture for the website was taken from [Pexels](https://www.pexels.com/):
-        * "euro-coins.png" - [Pixabay](https://www.pexels.com/photo/pile-of-gold-round-coins-106152/) .
+        * "euro-coins1.png" - [Pixabay](https://www.pexels.com/photo/pile-of-gold-round-coins-106152/) .
         
         
     
