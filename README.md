@@ -95,7 +95,7 @@ As a first time, returning or frequent visitor, I expect to:
 * The header contains website’s Logo and Title.
 * The Header has fixed position to allow users to see the website name and logo on any size device.
 
-![Header](docs/readme-images/header.png)
+![Header](docs/reademe-images/header.png)
 
 ### Modal 
 
@@ -103,23 +103,24 @@ As a first time, returning or frequent visitor, I expect to:
 * It is easy to find and access, because of the zoom and change color effect when hover over the mouse and also it contains the advice to click it.
 * The modal is responsive for any device screen.
 
-![Modal](docs/readme-images/about-us-page.png)
+![Modal](docs/reademe-images/modal-button.png)
+
 
 ### Employment pay details form
 
 * Employment pay details form should be filled by the user in order to get the result expected.
 * It is visualy devided into 3 sections: Your details on the left, Spouse details on the right, both of them including 3 input fields (Gross Wage, Working Hrs/Week and Working Days/Week) and a period selector. The centered section is for income tax details.
 * The spouse details section is not mandatory for filling. If ignored, the net salary/wage will be returned for a single assessed person. The user is informed about that when the mouse hover over the respective area.
-![Spouse details section](docs/readme-images/gallery-page.png)
+![Spouse details section](docs/reademe-images/spouse-details.png)
 * The section for incmome tax details isn't mandatory for filling. The user is informed about that when the mouse hover over the respective area.If ignored, the calculator will use the values pre-set in formulas and:
     * the net salary/wage will be returned for a single assessed person, in that case when the user enters just his salary/wage;
     * the net salary/wage will be returned for a joint assessed couple, in that case when the user enters both salaries for him and spouse.
-![Income tax details section](docs/readme-images/gallery-page.png)
+![Income tax details section](docs/reademe-images/tax-details.png)
 * The period selectors allows the user to use that salary/wage rate that is convenient for him, without the need to convert it for a special period.
 * The buttons Calculate and Reset allows the user to get the results and, respectively, to reset the form, without reloading the page.
 * The form is fully responsive on all devices.
 
-![Employment pay details form](docs/readme-images/gallery-page.png)
+![Employment pay details form](docs/reademe-images/employment-details-form.png)
 
 ### Result section
 
@@ -159,7 +160,6 @@ As a first time, returning or frequent visitor, I expect to:
 * Website's wireframe was created in Balsamiq.
 * Desktop and Mobile versions are presented below.
   
-    * About us page
     ![Website's wireframe](docs/reademe-images/wireframe.png)
   
 ### Color scheme

@@ -391,9 +391,10 @@ footer {
     table {
         width: 100%;
     }
-}
 
-@media screen and (max-width: 935px) {
+    td {
+        height: 40px;
+    }
 
     .input-result {
         display: flex;
@@ -415,12 +416,11 @@ footer {
     }
 }
 
-@media screen and (max-width: 935px) {
 
     .footer-box span {
         padding: 0;
     }
-}
+
 
 @media screen and (max-width: 750px) {
 
