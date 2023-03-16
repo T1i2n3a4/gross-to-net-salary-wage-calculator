@@ -14,7 +14,6 @@
     * [Employment pay details form](#employment-pay-details-form)
     * [Result section](#result-section)
     * [Footer](#footer)
-    * [404 Page](#404-page)
     * [Features left to implement](#features-left-to-implement)
 * [Design](#design)
     * [Wireframes](#wireframes)
@@ -46,7 +45,7 @@ Visiting this website, users will be able to find information about the calculat
 The advantage of this calculator is the opportunity to get a higher precision and a personalized result. For that, the user needs to take some details from his Tax Credits Certificate for the current year. However, if he can not access that document at the moment, the user can ignor the fields "Taxed at 20%" and "Net Tax Credits" and the calculator will return the result using the default amounts (for single assessed person, if the user enters just his employment income and for joint assessment, if the user enters both incomes, his and his spouse's.). Also, there are few links in the footer box, which can be accessed in order to find out more information about the employment pay in Ireland.
 [View the live site here.](https://t1i2n3a4.github.io/gross-to-net-salary-wage-calculator/)
 
-![Mockup](docs/readme-images/website-mockup.png)
+![Mockup](docs/reademe-images/mock-up.png)
 
 ## User Experience (UX)
 
@@ -128,7 +127,7 @@ As a first time, returning or frequent visitor, I expect to:
 * The Net Salary/Wage result is displayed on a green background, increasing its visibility and making it easy for the user to find it.
 * The table is responsible on all devices.
 
-![Result section](docs/readme-images/sign-up-page.png)
+![Result section](docs/reademe-images/result-section.png)
 
 ### Footer
 
@@ -136,21 +135,12 @@ As a first time, returning or frequent visitor, I expect to:
 * The links are easily accesible.
 * The footer is responsive on different devices.
 
-![Footer](docs/readme-images/footer.png)
-
-### 404 Page
-
-* A 404 page is implemented to display when the users navigate to a broken link.
-* The 404 page contains an information that makes the user aware that the page he looks for couldn't be found.
-* The 404 page also contains a link that allows the user to return to main website.
-
-![404 Page](docs/readme-images/404page.png)
+![Footer](docs/reademe-images/footer.png)
 
 ### Features left to implement
 
 * A section with grafic analitics of the employment income.
 * The possibility to update the results when the one or more input fields are changed, without reseting all the information.
-
 
 
 ## Design
@@ -262,12 +252,10 @@ As a first time, returning or frequent visitor, I expect to:
     * If correct inputs are submitted, no warning or errors appear. 
     ![Form testing result](docs/reademe-images/form-testing.png)
 
-### Fixed bugs
- 
- * Improving contrast
   
 ### Unfixed bugs
 
+* Add formula for default calculation of net salary if the user doesn't fill the "taxed at 20%" field.
 
 
 ## Deployment
