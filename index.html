@@ -22,31 +22,34 @@
     </header>
     <main>
         <div class="welcome-modal">
-
-            <button data-type="modal" type="button" id="myBtn">
+            <div><button data-type="modal" type="button" id="myBtn"></button>
+                <h2>Welcome to Gross to Net Salary/Wage Calculator website!</h2>
+                <p id="center-paragraf">(Click here for info about this calculator)</p></div>
+            
                 <h2>Welcome to Gross to Net Salary/Wage Calculator website!</h2>
                 <p id="center-paragraf">(Click here for info about this calculator)</p>
-            </button>
+            
 
             <!-- The Modal -->
-<div id="myModal" class="modal">
+            <div id="myModal" class="modal">
 
-    <!-- Modal content -->
-    <div class="modal-content">
-      <div class="modal-header">
-        <span class="close">&times;</span>
-        <h2>Welcome to Gross to Net Salary/Wage Calculator website!</h2>
-      </div>
-      <div class="modal-body">
-        <p>Use this website's salary/wage calculator to estimate your net employment income based on the provisions announced in the latest budget.</p>
-        <p>Some other text...</p>
-      </div>
-      
-    </div>
-  
-  </div>
-           </div>
-            
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <span class="close">&times;</span>
+                        <h2>Welcome to Gross to Net Salary/Wage Calculator website!</h2>
+                    </div>
+                    <div class="modal-body">
+                        <p>Use this website's salary/wage calculator to estimate your net employment income based on the
+                            provisions announced in the latest budget.</p>
+                        <p>Some other text...</p>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
 
         <section class="input-result">
             <div class="form-box">
@@ -58,8 +61,8 @@
                             <div class="wage">
                                 <h3>Your details:</h3><br>
                                 <label for="user-wage-input">Gross Wage:</label><br>
-                                <input type="number" id="user-wage-input" name="user-wage-input" class="number-input" step="0.01"
-                                value="0" required>
+                                <input type="number" id="user-wage-input" name="user-wage-input" class="number-input"
+                                    step="0.01" value="0" required>
                                 <select name="user-selected-period" id="user-selected-period" class="period">
                                     <option value="year">Year</option>
                                     <option value="month">Month</option>
@@ -107,11 +110,13 @@
                     <div class="centre">
                         <div>
                             <label for="first-tax-band">Taxed at 20%:</label><br>
-                            <input type="number" id="first-tax-band" name="first-tax-band" class="number-input" step="0.01" value="0" required><br>
+                            <input type="number" id="first-tax-band" name="first-tax-band" class="number-input"
+                                step="0.01" value="0" required><br>
                         </div>
                         <div>
                             <label for="tax-credits">Net Tax Credits:</label><br>
-                            <input type="number" id="tax-credits" name="tax-credits" class="number-input" step="0.01" value="0" required>
+                            <input type="number" id="tax-credits" name="tax-credits" class="number-input" step="0.01"
+                                value="0" required>
                         </div>
                     </div>
                     <div class="center-button">
@@ -136,58 +141,58 @@
                         <th>Annualy</th>
                         <td class="annual-result"></td>
                         <td class="annual-result"></td>
-                        <td class="annual-result" class="net"></td>
+                        <td class="annual-result"></td>
                     </tr>
                     <tr>
                         <th>Monthly</th>
                         <td class="monthly-result"></td>
                         <td class="monthly-result"></td>
-                        <td class="monthly-result" class="net"></td>
+                        <td class="monthly-result"></td>
                     </tr>
                     <tr>
                         <th>Fortnightly</th>
                         <td class="fortnightly-result"></td>
                         <td class="fortnightly-result"></td>
-                        <td class="fortnightly-result" class="net"></td>
+                        <td class="fortnightly-result"></td>
                     </tr>
                     <tr>
                         <th>Weekly</th>
                         <td class="weekly-result"></td>
                         <td class="weekly-result"></td>
-                        <td class="weekly-result" class="net"></td>
+                        <td class="weekly-result"></td>
                     </tr>
                     <tr>
                         <th>Daily</th>
                         <td class="daily-result"></td>
                         <td class="daily-result"></td>
-                        <td class="daily-result" class="net"></td>
+                        <td class="daily-result"></td>
                     </tr>
                     <tr>
                         <th>Hourly</th>
                         <td class="hourly-result"></td>
                         <td class="hourly-result"></td>
-                        <td class="hourly-result" class="net"></td>
+                        <td class="hourly-result"></td>
                     </tr>
                 </table>
             </div>
         </section>
-        <section></section>
     </main>
     <footer>
         <div class="footer-box">
             <span>Employment Pay Info on:</span>
             <ul class="websites">
-            <li>
-                <a href="https://www.revenue.ie" target="_blank" rel="noopener" aria-label="Salary/wage info on Revenue.ie">Revenue.ie</a>
-            </li>
-            <li>
-                <a href="https://www.citizensinformation.ie"
-                target="_blank" rel="noopener" aria-label="Salary/wage info on Citizensinformation.ie">Citizens Information.ie</a>
-            </li>
-        </ul>
+                <li>
+                    <a href="https://www.revenue.ie" target="_blank" rel="noopener"
+                        aria-label="Salary/wage info on Revenue.ie">Revenue.ie</a>
+                </li>
+                <li>
+                    <a href="https://www.citizensinformation.ie" target="_blank" rel="noopener"
+                        aria-label="Salary/wage info on Citizensinformation.ie">Citizens Information.ie</a>
+                </li>
+            </ul>
         </div>
     </footer>
-    
+
 
 
     <script src="assets/js/script.js"></script>

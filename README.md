@@ -160,14 +160,14 @@ As a first time, returning or frequent visitor, I expect to:
 * Desktop and Mobile versions are presented below.
   
     * About us page
-    ![Website's wireframe](docs/readme-images/about-us-wireframe.png)
+    ![Website's wireframe](docs/reademe-images/wireframe.png)
   
 ### Color scheme
 
 * The color scheme for the website was selected based on the logo colors and background picture colors. 
 * The nuances for the website were extracted from the background picture using Adobe Color.
 
-![Website's color-scheme](docs/readme-images/color-scheme.png)
+![Website's color-scheme](docs/reademe-images/color-scheme.png)
 
 
 ## Technologies
