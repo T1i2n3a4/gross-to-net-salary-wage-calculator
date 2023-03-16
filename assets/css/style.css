@@ -43,7 +43,7 @@ header {
 }
 
 .logo {
-    height: 70px;
+    height: 60px;
 }
 
 h1 {
@@ -52,16 +52,24 @@ h1 {
 }
 
 main {
-    margin-top: 70px;
+    margin-top: 60px;
     background: url(../images/euro-coins1.jpg);
 }
 
 /* Modal info */
 
+#center-paragraf {
+    text-align: center;
+}
+
+#myBtn h2 {
+    margin-bottom: 0;
+}
+
 #myBtn {
     text-align: center;
     width: auto;
-    height: 40px;
+    height: 60px;
     background: darkgray;
     font-size: large;
     padding-left: 10px;
@@ -239,8 +247,8 @@ label {
 }
 
 #calculate-button {
-    margin: 0 30px 30px;
-    padding: 20px 30px;
+    margin-top: 20px;
+    padding: 15px 30px;
     font-size: x-large;
     text-transform: uppercase;
     text-align: center;
@@ -253,10 +261,27 @@ label {
 .center-button {
     display: flex;
     justify-content: center;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 #calculate-button:hover {
+    background-color: #fff;
+    color: #338311;
+}
+
+#reset-button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    font-size: x-large;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #338311;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 100%;
+}
+
+#reset-button:hover {
     background-color: #fff;
     color: #338311;
 }
@@ -282,10 +307,6 @@ td {
     text-align: center;
 }
 
-/* #net-wage-result {
-    background: #338311;
-} */
-
 .net {
     background: #338311;
 }
@@ -296,7 +317,7 @@ td {
 footer {
     background: black;
     width: 100%;
-    height: 50px;
+    height: 35px;
 }
 
 .footer-box {
@@ -410,7 +431,7 @@ footer {
    
 @media screen and (max-width: 680px) {
 
-    h1 {
+    h1, h2 {
         font-size: 20px;
     }
 

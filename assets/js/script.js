@@ -15,7 +15,6 @@ let hourlyResults;
 let taxCredits;
 
 function handleSubmit(event) {
-    console.log("Calculate Runs");
     event.preventDefault();
 
     let userAnnualNetWage = annualNetWage();
@@ -23,18 +22,19 @@ function handleSubmit(event) {
     let userAnnualTotalTax = annualTotalTax();
    
     annualResults.push(userAnnualGrossWage, userAnnualTotalTax, userAnnualNetWage);
-    console.log(annualResults);
     monthlyResults = getMonthlyResults(annualResults);
     fortnightlyResults = getFortnightlyResults(annualResults);
     weeklyResults = getWeeklyResults(annualResults);
     dailyResults = getDailyResults(annualResults);
     hourlyResults = getHourlyResults(annualResults);
         
-    
-    
     taxCredits = annualTaxCredits();
-    console.log(`tax credits ${taxCredits}`)
-
+    
+    let resetButton = document.getElementById('reset-button');
+    resetButton.addEventListener('click', reload);
+    function reload() {
+        window.location.reload();
+    }
 
     displayAnnualResult();
     displayMonthlyResult();
@@ -42,7 +42,7 @@ function handleSubmit(event) {
     displayWeeklyResult();
     displayDailyResult();
     displayHourlyResult();
-
+    document.getElementById('calculate-button').disabled = true;
 }
 
 /**
@@ -214,8 +214,7 @@ function totalAnnualPaye() {
 
 function annualPaye() {
 let getPaye = totalAnnualPaye() * (annualGrossWage() / (annualGrossWage() + spouseAnnualGrossWage()));
-console.log(getPaye);
-return getPaye;
+return getPaye * 10;
 }
 
 /**Calculates user's annual USC 
@@ -329,8 +328,8 @@ function displayAnnualResult() {
 
     let annualResultRow = document.getElementsByClassName('annual-result');
     for (i = 0; i < annualResults.length; i++) {
-        annualResultRow[i + 1].innerHTML = annualResults[i];
-        console.log(annualResults);
+        annualResultRow[i].innerHTML = annualResults[i];
+        
     }
 }
 
@@ -338,23 +337,23 @@ function displayFortnightlyResult() {
 
     let fortnightResultRow = document.getElementsByClassName('fortnightly-result');
     for (i = 0; i < fortnightlyResults.length; i++) {
-        fortnightResultRow[i + 1].innerHTML = fortnightlyResults[i];
+        fortnightResultRow[i].innerHTML = fortnightlyResults[i];
     }
 }
 
 function displayWeeklyResult() {
 
-    let weeklyResultRow = document.getElementsByClassName('monthly-result');
+    let weeklyResultRow = document.getElementsByClassName('weekly-result');
     for (i = 0; i < weeklyResults.length; i++) {
-        weeklyResultRow[i + 1].innerHTML = weeklyResults[i];
-    }
+        weeklyResultRow[i].innerHTML = weeklyResults[i];
+        }
 }
 
 function displayDailyResult() {
 
     let dailyResultRow = document.getElementsByClassName('daily-result');
     for (i = 0; i < dailyResults.length; i++) {
-        dailyResultRow[i + 1].innerHTML = dailyResults[i];
+        dailyResultRow[i].innerHTML = dailyResults[i];
     }
 }
 
@@ -362,7 +361,7 @@ function displayHourlyResult() {
 
     let hourlyResultRow = document.getElementsByClassName('hourly-result');
     for (i = 0; i < hourlyResults.length; i++) {
-        hourlyResultRow[i + 1].innerHTML = hourlyResults[i];
+        hourlyResultRow[i].innerHTML = hourlyResults[i];
     }
 }
 
@@ -370,7 +369,7 @@ function displayMonthlyResult() {
 
     let monthlyResultRow = document.getElementsByClassName('monthly-result');
     for (i = 0; i < monthlyResults.length; i++) {
-        monthlyResultRow[i + 1].innerHTML = monthlyResults[i];
+        monthlyResultRow[i].innerHTML = monthlyResults[i];
     }
 }
 

@@ -1,108 +1,404 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# GROSS TO NET SALARY/WAGE CALCULATOR
 
-Welcome Cristina Stati,
+## Table of Contents
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+* [Introduction](#introduction)
+* [User Experience (UX)](#user-experience-ux)
+    * [Target audience](#target-audience)
+    * [User stories](#user-stories)
+        * [Website Owner](#website-owner)
+        * [First Time Visitors](#first-time-visitors)
+        * [Returning Visitors](#returning-visitors)
+        * [Frequent Users](#frequent-users)
+* [Features](#features)
+    * [Header](#header)
+    * [About-us page](#about-us-page)
+    * [Gallery page](#gallery-page)
+    * [Sign-up page](#sign-up-page)
+    * [Footer](#footer)
+    * [404 Page](#404-page)
+    * [Features left to implement](#features-left-to-implement)
+* [Design](#design)
+    * [Wireframes](#wireframes)
+    * [Color scheme](#color-scheme)
+* [Technologies](#technologies)
+* [Testing](#testing)
+    * [Validator Testing](#validator-testing)
+    * [Lighthouse Testing](#lighthouse-testing)
+    * [Responsiveness](#responsiveness)
+    * [Accessibility](#accessibility)
+    * [Functional testing](#functional-testing)
+    * [Fixed bugs](#fixed-bugs)
+    * [Unfixed bugs](#unfixed-bugs)
+* [Deployment](#deployment)
+    * [Version Control](#version-control)
+    * [Deployment to Github Pages](#deployment-to-github-pages)
+    * [Clone the Repository Code Locally](#clone-the-repository-code-locally)
+* [Credits](#credits)
+* [Acknowledgements](#acknowledgements)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
 
-## Gitpod Reminders
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
 
-`python3 -m http.server`
 
-A blue button should appear to click: _Make Public_,
+## Introduction
 
-Another blue button should appear to click: _Open Browser_.
+GROSS TO NET SALARY/WAGE CALCULATOR website offers to the user the possibility to estimate his net income from an employment in Ireland.
+Visiting this website, users will be able to find all the information about the Club, all the activities they could join, schedule for each activity. There is the possibility to book a place for activities by submitting a sign up form. There is also a Gallery with Club’s activities photos and contact information.
+The site is targeted towards moms whose children are St Mary's Primary School students.  
+[View the live site here.](https://t1i2n3a4.github.io/moms-wellbeing-club/)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+![Mockup](docs/readme-images/website-mockup.png)
 
-A blue button should appear to click: _Make Public_,
+## User Experience (UX)
 
-Another blue button should appear to click: _Open Browser_.
+### Target audience
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+The target audience for this website are:
+* Current employees in Ireland;
+* Potential employees in Ireland.
 
-To log into the Heroku toolbelt CLI:
+### User stories
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+#### Website Owner
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+As a website Owner, I intend to:
 
-------
+* provide the users with clear and easy to read information about Calculator and it's limitations;
+* provide the users with the information about the activities and the schedules;
+* offer to the user the possibility to contact the Club;
+* offer to the user the possibility to sign-up and join the Club for one or more activities;
+* ensure the access to Club's Social Media Networks;
+* ensure the user with a good visual experience when using the website;
+* make the website accessible and easy to navigate.
 
-## Release History
+#### First Time Visitors
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+As a first time visitor, I expect to:
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+* easily understand the main purpose of the site and learn more about the Club;
+* easily find the activities purposed for joining.
+* easily and intuitively navigate throughout the site to find content;
+* access the menu from any part of the page;
+* be able to view the website and read all information on all screen sizes;
+* see a visually appealing design.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+#### Returning Visitors
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+As a returning visitor, I expect to:
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+* find information about the activities;
+* find the schedules for the activities;
+* find the Club's contact details;
+* find Club's social media links;
+* easily sign-up and join the Club.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+#### Frequent Users
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+As a frequent visitor, I expect to:
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+* easily access the Gallery;
+* easily join one or more activities.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+## Features
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### Header
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+* The header contains website’s Logo and the Navigation Menu, with links to the About-us Activities, Gallery, Contact us and Sign up pages, which are responsive on all devices.
+* The Header has fixed position to allow users to easily access different pages within the site on any size device.
+* The links to pages have zoom effect when being mouse hovered and the link to the active page is underlined to show the user which page he accessed at that moment.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+![Navigation Menu](docs/readme-images/header.png)
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+### About-us page
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+* About-us page contains a quote, the club’s ethos and provides the user with information about the purpose of the club and it’s foundation, all of them on a background picture, that makes the site visually appealing. The page is responsive for any device screen.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+![About-us](docs/readme-images/about-us-page.png)
 
-------
+* It also contains the Activities section, which can be accessed as a separate page from the navigation menu. The activities page contains 5 sections, one for each activity type. Each section consists of:
+    * Activity description;
+    * A picture for that activity, including a link to Sign-up page;
+    * Activity schedule.
+* This will allow the users to choose which activity they are going to join.
 
-## FAQ about the uptime script
+![Activities section](docs/readme-images/activities-section.png)
 
-**Why have you added this script?**
+* Contact-us page is also a part of the About us page, however it can be accessed from the navigation bar. Contact us page comprises:
+    * The address;
+    * Get in touch information (phone and email);
+    * A map.
+* This will allow the users to easily find the contact details and get in touch with the club.
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+![Contact-us section](docs/readme-images/contact-us-section.png)
 
-**How will this affect me?**
+### Gallery page
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+* The gallery provides the users with photos from the club's activities.
+* The page is fully responsive on all devices.
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+![Gallery page](docs/readme-images/gallery-page.png)
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+### Sign-up page
 
-**So….?**
+* Sign-up page consists of a thank you heading and the suggestion to join the club.
+* A submission form comprising 2 fieldsets and a submission button is also included on the page, all of them being fully responsive on any devices. 
+* The first fieldset requires personal information as:
+    * First name
+    * Last name
+    * Email address
+* The second fieldset offers the users the possibility to check one or more activities to join.
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+![Sign-up page](docs/readme-images/sign-up-page.png)
 
-**Can I opt out?**
+### Footer
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+* The footer includes icons and links to social media networks.
+* It ensures the users with an easy access to the social networks.
+* The text: FIND US ON is hidden for smaller viewports to make the footer responsive.
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+![Footer](docs/readme-images/footer.png)
 
-**Anything more?**
+### 404 Page
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+* A 404 page is implemented to display when the users navigate to a broken link.
+* The 404 page contains an information that makes the user aware that the page he looks for couldn't be found.
+* The 404 page also contains a link that allows the user to return to main website.
 
----
+![Footer](docs/readme-images/404page.png)
 
-Happy coding!
+### Features left to implement
+
+* Pictures filter to be added to gallery page, to sort them by activity type.
+* A sign-up form for mothers who would like to become volunteers by introducing and organising new activities.
+* 
+
+
+## Design
+
+### Wireframes
+
+* Website's wireframe was created in Balsamiq.
+* Desktop and Mobile versions are presented below.
+
+  
+    * About us page
+    ![About-us wireframe](docs/readme-images/about-us-wireframe.png)
+  
+    * Activities section
+
+    ![Activities section wireframe](docs/readme-images/activities-wireframe.png)
+
+    * Contact-us section
+
+    ![Contact-us section wireframe](docs/readme-images/contact-us-wireframe.png)
+
+    * Gallery page
+
+    ![Gallery page wireframe](docs/readme-images/gallery-wireframe.png)
+
+    * Sign-up page
+
+    ![Sign-up page wireframe](docs/readme-images/sign-up-wireframe.png)
+
+
+### Color scheme
+
+* The color scheme for the website was selected based on the purpose of the club to help mothers achieving a state of wellbeing.
+* The color green represents new beginnings and growth. It contains calming attributes, but also incorporates energy.
+* The color purple brings up a feeling of trust and reliability. It is also one of the mindfulness color.
+* The background image of the landing page incorporates both colors: green and purple. The picture represents a woman in a lavender field, touching the lavender flowers. 
+* Lavender flower is a symbol of purity, silence, devotion, serenity, grace and calmness, which also reveals the club's purpose.
+* The nuances of green and purple for the website were extracted from the background picture using Adobe Color.
+
+![Website's color-scheme](docs/readme-images/color-scheme.png)
+
+
+## Technologies
+
+* HTML
+    * The website's structure was developed using HTML as the main language.
+* CSS
+    * The website was styled using CSS.
+* [GitHub](https://github.com/)
+    * GitHub hosts the source code that is deployed using Git Pages.
+* Git
+    * Commit and pushing code, using Git while creating the website.
+* [Font Awesome](https://fontawesome.com/)
+    * The icons used as Social Media links on the Footer were obtained from Font Awesome website.
+* [Google Fonts](https://fonts.google.com/)
+    * Used to select font families for website's body and headings.
+* [Tinypng](https://tinypng.com/)
+    * Used to reduce the pictures embedded on the website.
+* Paint app 
+    * Used to tailor the pictures embedded on the website.
+* [Adobe Color](https://color.adobe.com/)
+    * Used to extract the color scheme from the background picture.
+* [Balsamiq](https://balsamiq.com/wireframes/)
+    * Used to create the wireframes for desktop, tablet and mobile.
+* [Google maps](https://www.google.com/maps/)
+    * Used to embed the map on Contact us section.
+
+
+## Testing
+
+### Validator Testing
+
+* HTML 
+    * [W3C Validator](https://validator.w3.org/) was used for HTML validation.
+    * No errors or warnings have been found.
+
+    ![HTML validation result](docs/readme-images/about-us-html-validator.png)
+
+    ![HTML validation result](docs/readme-images/gallery-html-validator.png)
+
+    ![HTML validation result](docs/readme-images/sign-up-html-validator.png)
+
+    ![HTML validation result](docs/readme-images/404-html-validator.png)
+    
+
+
+
+* CSS
+    * [W3C CSS validator (Jigsaw)](https://jigsaw.w3.org/css-validator/) was used for CSS validation.
+    * No errors have been found.
+
+    ![CSS validation result](docs/readme-images/w3c-css-validator.png)
+
+### Lighthouse Testing
+
+* Performance, Accessibility, Best Practices and SEO for each page were tested by running them through Lighthouse in DevTools.
+* The results for each page are presented below.
+
+    * About-us page
+
+    ![About us page Lighthouse](docs/readme-images/about-us-lighthouse.png)
+
+    * Gallery page
+
+    ![Gallery page Lighthouse](docs/readme-images/gallery-lighthouse.png)
+
+    * Sign-up page
+
+    ![Sign-up page Lighthouse](docs/readme-images/sign-up-lighthouse.png)
+
+### Responsiveness
+
+* All website's pages are responsive on any screen sizes from 320px and upwards on Chrome, Firefox, Edge and Opera browsers.
+* The responsiveness was tested using Developer Tools set to responsive and decreasing width from maximum to 320px.
+* The website was opened on the following devices:
+    * DESKTOP-HS5R5Q3
+    * Samsung Galaxy S22
+    * Iphone 12 Mini
+    * MacBook Pro
+* No issues have been seen.
+
+### Accessibility
+
+* Website's accessibility evaluation was done using [Wave Accessibility](https://wave.webaim.org/) tool.
+* No errors have been found.
+* Accessibility evaluation results are presented below.
+    * About us page accessibility evaluation result:
+
+    ![About us page accessibility evaluation result](docs/readme-images/about-us-accessibility-evaluation.png)
+
+    * Gallery page accessibility evaluation result:
+
+    ![Gallery page accessibility evaluation result](docs/readme-images/gallery-accessibility-evaluation.png)
+
+    * Sign-up page accessibility evaluation result:
+
+    ![Sign-up page accessibility evaluation result](docs/readme-images/sign-up-accessibility-evaluation.png)
+
+### Functional testing
+
+* Navigation Links
+
+    * Clicking on the navigation links, all the links lead to the respective pages.
+    
+* Social Media Links
+
+    * Clicking on the Social Media icons, each of the links opens the respective Social Media Platform.
+    * As the webpage is for a fictive Club, the links open the Social Media Platform, not the Club's page on that platform.
+    * As expected, each of the Social Media Platform opens in a new tab.
+
+
+* Form testing
+
+    * The form on the Sign-up page was tested for functionality.
+    * If one of the fields is empty a warning message "Please fill this field" appears when click to submit.
+    * If the email field is submitted with a non-email text, a warning message "Please include an '@' in the email address" appears.
+    * If correct inputs are submitted, no warning or errors appear. 
+    ![Form testing result](docs/readme-images/form-testing.png)
+
+### Fixed bugs
+
+After getting a contrast error while evaluating the website's accessibility:
+  * Quote color font on the About us page was changed from white to black to increase contrast;
+  * Sign-up page heading was changed from white to black to increase contrast.
+
+### Unfixed bugs
+
+The links in the navigation bar to Activities and Contact-us sections are not underlined when active (those sections are parts of the main page).
+
+
+## Deployment
+
+### Version Control
+
+* The site was created on [Gitpod](https://www.gitpod.io/) platform.
+* The code was added to the staging area using ```git add .``` command.
+* Changes were committed using ```git commit -m “ ”``` command.
+* Committed code was pushed to the GitHub repository using ```git push``` command.
+
+### Deployment to Github Pages
+
+* The website was deployed to GitHub Pages, following the steps:
+    * GitHub Repository - Settings - General (left side menu) - Pages - Build a Deployment - Source - Branch: main - Save.
+    * Go back to GitHub Pages were a live link is displayed when published successfully.
+    * The live link can be found [here](https://t1i2n3a4.github.io/moms-wellbeing-club/).
+
+### Clone the Repository Code Locally
+
+1. Navigate to the project's repository
+2. Click on the Code button
+3. Copy HTTPS repository link 
+4. Open Git Bash (previously installed)
+5. Type git clone https://github.com/T1i2n3a4/moms-wellbeing-club.git
+6. Press Enter
+
+The project is cloned on my local machine.
+
+
+## Credits
+
+* Code
+    * Most of the codes used throughout the project were learnt at the [Code Institute Programme](https://learn.codeinstitute.net/), including the CI projects.
+    * [W3Scools](https://www.w3schools.com/) and [freeCodeCamp](https://www.freecodecamp.org/) were used to solve the issues aroused while developing the project.
+* Content 
+    * The website's content was written by the developer.
+    * Gareth's McGirr README was used as a sample for this project.
+* Media
+    * All the pictures for the website were taken from [Pexels](https://www.pexels.com/):
+        * Backgroung picture "lady-in-lavender-field.png" - author Anastasiya Lobanovskaya.
+        * Yoga pictures on Activities section and Gallery page - author Elina Fairytale.
+        * Toddlers pictures on Activities section and Gallery page - author Cottonbro Studio.
+        * Aerobics pictures on Activities section and Gallery page - author Gustavo Fring.
+        * Art and Crafts pictures on Activities section and Gallery page - author Antoni Shkraba.
+        * Book Club pictures on Activities section and Gallery page - author Yaroslav Shuraev.
+    * [Google Maps](https://www.google.com/maps/) was used for the map on the Contact us section.
+    * [Code Institute Channel Lead Library](https://www.youtube.com/playlist?list=PL_7334VduOHvzZYlgy_0kZLcic2NINCUt) guided throughout the project development, especially on the planning stage.
+    
+## Acknowledgements
+* Special thanks of gratitude to my project mentor Daisy McGirr for her guidance at every stage of the project, continuous support, understanding, encouragement and supply with useful information.
+* Special thanks of gratitude to our cohort tutor Irene Neville for her continuous support, for informational material and for providing with all the facilities required during the project development.
+* Code Institute Team.
+* Thank you to my family for their understanding, patience, support and encouragement.
+     
+
+
+
+
+
+
+
