@@ -7,14 +7,12 @@
     * [Target audience](#target-audience)
     * [User stories](#user-stories)
         * [Website Owner](#website-owner)
-        * [First Time Visitors](#first-time-visitors)
-        * [Returning Visitors](#returning-visitors)
-        * [Frequent Users](#frequent-users)
+        * [User expectations](#user-expectations)
 * [Features](#features)
     * [Header](#header)
-    * [About-us page](#about-us-page)
-    * [Gallery page](#gallery-page)
-    * [Sign-up page](#sign-up-page)
+    * [Modal](#modal)
+    * [Employment pay details form](#employment-pay-details-form)
+    * [Result section](#result-section)
     * [Footer](#footer)
     * [404 Page](#404-page)
     * [Features left to implement](#features-left-to-implement)
@@ -43,10 +41,10 @@
 
 ## Introduction
 
-GROSS TO NET SALARY/WAGE CALCULATOR website offers to the user the possibility to estimate his net income from an employment in Ireland.
-Visiting this website, users will be able to find all the information about the Club, all the activities they could join, schedule for each activity. There is the possibility to book a place for activities by submitting a sign up form. There is also a Gallery with Club’s activities photos and contact information.
-The site is targeted towards moms whose children are St Mary's Primary School students.  
-[View the live site here.](https://t1i2n3a4.github.io/moms-wellbeing-club/)
+GROSS TO NET SALARY/WAGE CALCULATOR website offers to the user the possibility to estimate the net income from an employment in Ireland, according to the latest budget update for 2023. 
+Visiting this website, users will be able to find information about the calculator advantages and limitations in the modal, to find out what details he needs to enter for getting the result and where to find those details. 
+The advantage of this calculator is the opportunity to get a higher precision and a personalized result. For that, the user needs to take some details from his Tax Credits Certificate for the current year. However, if he can not access that document at the moment, the user can ignor the fields "Taxed at 20%" and "Net Tax Credits" and the calculator will return the result using the default amounts (for single assessed person, if the user enters just his employment income and for joint assessment, if the user enters both incomes, his and his spouse's.). Also, there are few links in the footer box, which can be accessed in order to find out more information about the employment pay in Ireland.
+[View the live site here.](https://t1i2n3a4.github.io/gross-to-net-salary-wage-calculator/)
 
 ![Mockup](docs/readme-images/website-mockup.png)
 
@@ -56,106 +54,86 @@ The site is targeted towards moms whose children are St Mary's Primary School st
 
 The target audience for this website are:
 * Current employees in Ireland;
-* Potential employees in Ireland.
+* Potential employees in Ireland;
+* People interested to find out the difference between the gross and net salaries in Ireland.
 
 ### User stories
 
 #### Website Owner
 
-As a website Owner, I intend to:
+  
+As a website Owner, I want to:
 
-* provide the users with clear and easy to read information about Calculator and it's limitations;
-* provide the users with the information about the activities and the schedules;
-* offer to the user the possibility to contact the Club;
-* offer to the user the possibility to sign-up and join the Club for one or more activities;
-* ensure the access to Club's Social Media Networks;
-* ensure the user with a good visual experience when using the website;
-* make the website accessible and easy to navigate.
+* provide the user with clear and easy to read information about the Calculator, it's advantages and limitations, so that the user could understand the precision of the results.
+* provide the user with clear and easy to fill form, so that the user could understand where and what he should enter and spend less time for filling the form. 
+* provide the user with clear information about what information he needs to enter in the form and where he could find that information, so that the user could spend less time to look for those.
+* set the calculator with some default values, so that the user have the possibility to ignore some form fields, if he doesn't have the details.
+* offer the user the possibility to select the period for which the gross salary/wage rate was entered, so that the user shouldn't convert the income rate he knows for a required period.
+offer the user the possibility to reset the form, so that he shouldn't reload the page to enter new details.
+* display the results for all possible pay periods (annualy, monthly, fortnightly, weekly, daily, hourly), so that the user could have a complete and detailed picture of his net salary/wage;
+* display also the total tax and the gross salary/wage for each of the above mentioned periods, so that the user could a complete picture of how his income is divized. 
+* offer the user the possibility to access few links, so that he could find out all the information about the employment pay, income taxes and other relevant information.
 
-#### First Time Visitors
+#### User expectations (First time visitor, Returning Visitor, Frequent User)
 
-As a first time visitor, I expect to:
+As a first time, returning or frequent visitor, I expect to:
 
-* easily understand the main purpose of the site and learn more about the Club;
-* easily find the activities purposed for joining.
+* easily understand the main purpose of the site and some information about the calculator (can be found clicking the modal);
+* easily find what information I need for filling the form (can be found clicking the modal and reading the fields description, also there is some useful information while mouse hovering some areas);
+* easily and intuitively filling the form;
+* easily find the result.
 * easily and intuitively navigate throughout the site to find content;
-* access the menu from any part of the page;
+* easily find and access the links for more information.
 * be able to view the website and read all information on all screen sizes;
 * see a visually appealing design.
 
-#### Returning Visitors
-
-As a returning visitor, I expect to:
-
-* find information about the activities;
-* find the schedules for the activities;
-* find the Club's contact details;
-* find Club's social media links;
-* easily sign-up and join the Club.
-
-#### Frequent Users
-
-As a frequent visitor, I expect to:
-
-* easily access the Gallery;
-* easily join one or more activities.
 
 ## Features
 
 ### Header
 
-* The header contains website’s Logo and the Navigation Menu, with links to the About-us Activities, Gallery, Contact us and Sign up pages, which are responsive on all devices.
-* The Header has fixed position to allow users to easily access different pages within the site on any size device.
-* The links to pages have zoom effect when being mouse hovered and the link to the active page is underlined to show the user which page he accessed at that moment.
+* The header contains website’s Logo and Title.
+* The Header has fixed position to allow users to see the website name and logo on any size device.
 
-![Navigation Menu](docs/readme-images/header.png)
+![Header](docs/readme-images/header.png)
 
-### About-us page
+### Modal 
 
-* About-us page contains a quote, the club’s ethos and provides the user with information about the purpose of the club and it’s foundation, all of them on a background picture, that makes the site visually appealing. The page is responsive for any device screen.
+* The Modal contains a welcome heading and provides the user with information about the purpose of the website, the advantages and limitations of the calculator, informs the user what details he needs to enter in the form and where could he find them and other useful information. 
+* It is easy to find and access, because of the zoom and change color effect when hover over the mouse and also it contains the advice to click it.
+* The modal is responsive for any device screen.
 
-![About-us](docs/readme-images/about-us-page.png)
+![Modal](docs/readme-images/about-us-page.png)
 
-* It also contains the Activities section, which can be accessed as a separate page from the navigation menu. The activities page contains 5 sections, one for each activity type. Each section consists of:
-    * Activity description;
-    * A picture for that activity, including a link to Sign-up page;
-    * Activity schedule.
-* This will allow the users to choose which activity they are going to join.
+### Employment pay details form
 
-![Activities section](docs/readme-images/activities-section.png)
+* Employment pay details form should be filled by the user in order to get the result expected.
+* It is visualy devided into 3 sections: Your details on the left, Spouse details on the right, both of them including 3 input fields (Gross Wage, Working Hrs/Week and Working Days/Week) and a period selector. The centered section is for income tax details.
+* The spouse details section is not mandatory for filling. If ignored, the net salary/wage will be returned for a single assessed person. The user is informed about that when the mouse hover over the respective area.
+![Spouse details section](docs/readme-images/gallery-page.png)
+* The section for incmome tax details isn't mandatory for filling. The user is informed about that when the mouse hover over the respective area.If ignored, the calculator will use the values pre-set in formulas and:
+    * the net salary/wage will be returned for a single assessed person, in that case when the user enters just his salary/wage;
+    * the net salary/wage will be returned for a joint assessed couple, in that case when the user enters both salaries for him and spouse.
+![Income tax details section](docs/readme-images/gallery-page.png)
+* The period selectors allows the user to use that salary/wage rate that is convenient for him, without the need to convert it for a special period.
+* The buttons Calculate and Reset allows the user to get the results and, respectively, to reset the form, without reloading the page.
+* The form is fully responsive on all devices.
 
-* Contact-us page is also a part of the About us page, however it can be accessed from the navigation bar. Contact us page comprises:
-    * The address;
-    * Get in touch information (phone and email);
-    * A map.
-* This will allow the users to easily find the contact details and get in touch with the club.
+![Employment pay details form](docs/readme-images/gallery-page.png)
 
-![Contact-us section](docs/readme-images/contact-us-section.png)
+### Result section
 
-### Gallery page
+* Result section includes a table containing the Gross Salary/Wage, Total Tax and Net Salary/Wage results for all possible pay periods, offering the user the possibility to see a complete picture of his employment pay and to analyse the information provided.
+* The Net Salary/Wage result is displayed on a green background, increasing its visibility and making it easy for the user to find it.
+* The table is responsible on all devices.
 
-* The gallery provides the users with photos from the club's activities.
-* The page is fully responsive on all devices.
-
-![Gallery page](docs/readme-images/gallery-page.png)
-
-### Sign-up page
-
-* Sign-up page consists of a thank you heading and the suggestion to join the club.
-* A submission form comprising 2 fieldsets and a submission button is also included on the page, all of them being fully responsive on any devices. 
-* The first fieldset requires personal information as:
-    * First name
-    * Last name
-    * Email address
-* The second fieldset offers the users the possibility to check one or more activities to join.
-
-![Sign-up page](docs/readme-images/sign-up-page.png)
+![Result section](docs/readme-images/sign-up-page.png)
 
 ### Footer
 
-* The footer includes icons and links to social media networks.
-* It ensures the users with an easy access to the social networks.
-* The text: FIND US ON is hidden for smaller viewports to make the footer responsive.
+* The footer includes links to relevant sites where the user could find all the information about employment pay in Ireland.
+* The links are easily accesible.
+* The footer is responsive on different devices.
 
 ![Footer](docs/readme-images/footer.png)
 
@@ -165,13 +143,13 @@ As a frequent visitor, I expect to:
 * The 404 page contains an information that makes the user aware that the page he looks for couldn't be found.
 * The 404 page also contains a link that allows the user to return to main website.
 
-![Footer](docs/readme-images/404page.png)
+![404 Page](docs/readme-images/404page.png)
 
 ### Features left to implement
 
-* Pictures filter to be added to gallery page, to sort them by activity type.
-* A sign-up form for mothers who would like to become volunteers by introducing and organising new activities.
-* 
+* A section with grafic analitics of the employment income.
+* The possibility to update the results when the one or more input fields are changed, without reseting all the information.
+
 
 
 ## Design
@@ -180,36 +158,14 @@ As a frequent visitor, I expect to:
 
 * Website's wireframe was created in Balsamiq.
 * Desktop and Mobile versions are presented below.
-
   
     * About us page
-    ![About-us wireframe](docs/readme-images/about-us-wireframe.png)
+    ![Website's wireframe](docs/readme-images/about-us-wireframe.png)
   
-    * Activities section
-
-    ![Activities section wireframe](docs/readme-images/activities-wireframe.png)
-
-    * Contact-us section
-
-    ![Contact-us section wireframe](docs/readme-images/contact-us-wireframe.png)
-
-    * Gallery page
-
-    ![Gallery page wireframe](docs/readme-images/gallery-wireframe.png)
-
-    * Sign-up page
-
-    ![Sign-up page wireframe](docs/readme-images/sign-up-wireframe.png)
-
-
 ### Color scheme
 
-* The color scheme for the website was selected based on the purpose of the club to help mothers achieving a state of wellbeing.
-* The color green represents new beginnings and growth. It contains calming attributes, but also incorporates energy.
-* The color purple brings up a feeling of trust and reliability. It is also one of the mindfulness color.
-* The background image of the landing page incorporates both colors: green and purple. The picture represents a woman in a lavender field, touching the lavender flowers. 
-* Lavender flower is a symbol of purity, silence, devotion, serenity, grace and calmness, which also reveals the club's purpose.
-* The nuances of green and purple for the website were extracted from the background picture using Adobe Color.
+* The color scheme for the website was selected based on the logo colors and background picture colors. 
+* The nuances for the website were extracted from the background picture using Adobe Color.
 
 ![Website's color-scheme](docs/readme-images/color-scheme.png)
 
@@ -225,7 +181,7 @@ As a frequent visitor, I expect to:
 * Git
     * Commit and pushing code, using Git while creating the website.
 * [Font Awesome](https://fontawesome.com/)
-    * The icons used as Social Media links on the Footer were obtained from Font Awesome website.
+    * The icons used 
 * [Google Fonts](https://fonts.google.com/)
     * Used to select font families for website's body and headings.
 * [Tinypng](https://tinypng.com/)
@@ -236,8 +192,7 @@ As a frequent visitor, I expect to:
     * Used to extract the color scheme from the background picture.
 * [Balsamiq](https://balsamiq.com/wireframes/)
     * Used to create the wireframes for desktop, tablet and mobile.
-* [Google maps](https://www.google.com/maps/)
-    * Used to embed the map on Contact us section.
+
 
 
 ## Testing
@@ -250,15 +205,6 @@ As a frequent visitor, I expect to:
 
     ![HTML validation result](docs/readme-images/about-us-html-validator.png)
 
-    ![HTML validation result](docs/readme-images/gallery-html-validator.png)
-
-    ![HTML validation result](docs/readme-images/sign-up-html-validator.png)
-
-    ![HTML validation result](docs/readme-images/404-html-validator.png)
-    
-
-
-
 * CSS
     * [W3C CSS validator (Jigsaw)](https://jigsaw.w3.org/css-validator/) was used for CSS validation.
     * No errors have been found.
@@ -268,23 +214,13 @@ As a frequent visitor, I expect to:
 ### Lighthouse Testing
 
 * Performance, Accessibility, Best Practices and SEO for each page were tested by running them through Lighthouse in DevTools.
-* The results for each page are presented below.
+* The results are presented below.
 
-    * About-us page
-
-    ![About us page Lighthouse](docs/readme-images/about-us-lighthouse.png)
-
-    * Gallery page
-
-    ![Gallery page Lighthouse](docs/readme-images/gallery-lighthouse.png)
-
-    * Sign-up page
-
-    ![Sign-up page Lighthouse](docs/readme-images/sign-up-lighthouse.png)
+![About us page Lighthouse](docs/readme-images/about-us-lighthouse.png)
 
 ### Responsiveness
 
-* All website's pages are responsive on any screen sizes from 320px and upwards on Chrome, Firefox, Edge and Opera browsers.
+* The website is responsive on any screen sizes from 320px and upwards on Chrome, Firefox, Edge and Opera browsers.
 * The responsiveness was tested using Developer Tools set to responsive and decreasing width from maximum to 320px.
 * The website was opened on the following devices:
     * DESKTOP-HS5R5Q3
@@ -293,6 +229,7 @@ As a frequent visitor, I expect to:
     * MacBook Pro
 * No issues have been seen.
 
+
 ### Accessibility
 
 * Website's accessibility evaluation was done using [Wave Accessibility](https://wave.webaim.org/) tool.
@@ -300,46 +237,31 @@ As a frequent visitor, I expect to:
 * Accessibility evaluation results are presented below.
     * About us page accessibility evaluation result:
 
-    ![About us page accessibility evaluation result](docs/readme-images/about-us-accessibility-evaluation.png)
+    ![Accessibility evaluation result](docs/readme-images/about-us-accessibility-evaluation.png)
 
-    * Gallery page accessibility evaluation result:
-
-    ![Gallery page accessibility evaluation result](docs/readme-images/gallery-accessibility-evaluation.png)
-
-    * Sign-up page accessibility evaluation result:
-
-    ![Sign-up page accessibility evaluation result](docs/readme-images/sign-up-accessibility-evaluation.png)
 
 ### Functional testing
-
-* Navigation Links
-
-    * Clicking on the navigation links, all the links lead to the respective pages.
     
-* Social Media Links
+* Websites Links
 
-    * Clicking on the Social Media icons, each of the links opens the respective Social Media Platform.
-    * As the webpage is for a fictive Club, the links open the Social Media Platform, not the Club's page on that platform.
-    * As expected, each of the Social Media Platform opens in a new tab.
+    * Clicking on the websites links in the footer box, each of the links opens the respective website.
+    * As expected, each website opens in a new tab.
 
 
 * Form testing
 
-    * The form on the Sign-up page was tested for functionality.
+    * The Employment pay details form was tested for functionality.
     * If one of the fields is empty a warning message "Please fill this field" appears when click to submit.
-    * If the email field is submitted with a non-email text, a warning message "Please include an '@' in the email address" appears.
+    * Value 0 is set by default to ensure the correct computations when the user doesn't fill some fields.
     * If correct inputs are submitted, no warning or errors appear. 
     ![Form testing result](docs/readme-images/form-testing.png)
 
 ### Fixed bugs
 
-After getting a contrast error while evaluating the website's accessibility:
-  * Quote color font on the About us page was changed from white to black to increase contrast;
-  * Sign-up page heading was changed from white to black to increase contrast.
+    
 
 ### Unfixed bugs
 
-The links in the navigation bar to Activities and Contact-us sections are not underlined when active (those sections are parts of the main page).
 
 
 ## Deployment
@@ -356,7 +278,7 @@ The links in the navigation bar to Activities and Contact-us sections are not un
 * The website was deployed to GitHub Pages, following the steps:
     * GitHub Repository - Settings - General (left side menu) - Pages - Build a Deployment - Source - Branch: main - Save.
     * Go back to GitHub Pages were a live link is displayed when published successfully.
-    * The live link can be found [here](https://t1i2n3a4.github.io/moms-wellbeing-club/).
+    * The live link can be found [here](https://t1i2n3a4.github.io/gross-to-net-salary-wage-calculator/).
 
 ### Clone the Repository Code Locally
 
@@ -364,7 +286,7 @@ The links in the navigation bar to Activities and Contact-us sections are not un
 2. Click on the Code button
 3. Copy HTTPS repository link 
 4. Open Git Bash (previously installed)
-5. Type git clone https://github.com/T1i2n3a4/moms-wellbeing-club.git
+5. Type git clone 
 6. Press Enter
 
 The project is cloned on my local machine.
@@ -375,24 +297,24 @@ The project is cloned on my local machine.
 * Code
     * Most of the codes used throughout the project were learnt at the [Code Institute Programme](https://learn.codeinstitute.net/), including the CI projects.
     * [W3Scools](https://www.w3schools.com/) and [freeCodeCamp](https://www.freecodecamp.org/) were used to solve the issues aroused while developing the project.
+    * [W3Scools](https://www.w3schools.com/) was used to create the modal. The modal is copy-paste from that website.
+    * [W3Scools](https://www.w3schools.com/) was used for Button disabled Property.
+    * [FreeCodeCamp](https://www.freecodecamp.org/) was used for more information about refreshing the page in Javascript.
+    * 
 * Content 
     * The website's content was written by the developer.
-    * Gareth's McGirr README was used as a sample for this project.
 * Media
-    * All the pictures for the website were taken from [Pexels](https://www.pexels.com/):
-        * Backgroung picture "lady-in-lavender-field.png" - author Anastasiya Lobanovskaya.
-        * Yoga pictures on Activities section and Gallery page - author Elina Fairytale.
-        * Toddlers pictures on Activities section and Gallery page - author Cottonbro Studio.
-        * Aerobics pictures on Activities section and Gallery page - author Gustavo Fring.
-        * Art and Crafts pictures on Activities section and Gallery page - author Antoni Shkraba.
-        * Book Club pictures on Activities section and Gallery page - author Yaroslav Shuraev.
-    * [Google Maps](https://www.google.com/maps/) was used for the map on the Contact us section.
-    * [Code Institute Channel Lead Library](https://www.youtube.com/playlist?list=PL_7334VduOHvzZYlgy_0kZLcic2NINCUt) guided throughout the project development, especially on the planning stage.
+    * The logo picture for the website was taken from [PngWing](https://www.pngwing.com/):
+        * "logo.png" - [Computer Icons Payroll Salary Calculator](https://www.pngwing.com/en/free-png-zqihu/download)
+    * The background picture for the website was taken from [Pexels](https://www.pexels.com/):
+        * "euro-coins.png" - [Pixabay](https://www.pexels.com/photo/pile-of-gold-round-coins-106152/) .
+        
+        
     
 ## Acknowledgements
 * Special thanks of gratitude to my project mentor Daisy McGirr for her guidance at every stage of the project, continuous support, understanding, encouragement and supply with useful information.
 * Special thanks of gratitude to our cohort tutor Irene Neville for her continuous support, for informational material and for providing with all the facilities required during the project development.
-* Code Institute Team.
+* Special thanks of gratitude to Code Institute Tutors: Sean, Ed, Joshua, Oisin for helping me to solve some issues.
 * Thank you to my family for their understanding, patience, support and encouragement.
      
 
